@@ -2,11 +2,11 @@
 
 import {
   Box,
-  Heading,
   Container,
+  Heading,
   Text,
-  Button,
   Stack,
+  Button,
   Icon,
   useColorModeValue,
   createIcon,
@@ -14,65 +14,68 @@ import {
 
 export default function CallToActionWithAnnotation() {
   return (
-    <>
-      <Container maxW={'6xl'}> {/* Increased width */}
-        <Stack
-          as={Box}
-          textAlign={'center'}
-          spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
-          <Heading
-            fontWeight={600}
-            fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight={'110%'}>
-            Empower Your Business with a Professional Website
-            <br />
-            <Text as={'span'} color={'var(--accent-color)'}>
-              Unlock Your Potential
-            </Text>
-          </Heading>
-          <Text color={'var(--text-light-color)'}>
-            Expert web development tailored to your business needs. Transform your online presence with a custom solution designed to help you succeed.
+    <Container maxW={'6xl'}>
+      <Stack
+        as={Box}
+        textAlign={'center'}
+        spacing={{ base: 8, md: 14 }}
+        py={{ base: 20, md: 36 }}>
+        <Heading
+          fontWeight={600}
+          fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+          lineHeight={'110%'}
+          color={'var(--main-color)'}
+        >
+          Empower Your Business with a Professional Website
+          <br />
+          <Text as={'span'} color={'var(--accent-color)'}>
+            Unlock Your Potential
           </Text>
-          <Stack
-            direction={'column'}
-            spacing={3}
-            align={'center'}
+        </Heading>
+        <Text color={'var(--text-light-color)'} fontSize={'lg'}>
+          Expert web development tailored to your business needs. Transform your online presence with a custom solution designed to help you succeed.
+        </Text>
+        <Stack
+          direction={'column'}
+          spacing={3}
+          align={'center'}
+          alignSelf={'center'}
+          position={'relative'}>
+          <Button
+            colorScheme={'accent-color'}
+            bg={'var(--accent-color)'}
+            rounded={'full'}
+            px={6}
+            _hover={{
+              bg: 'var(--button-hover-color)',
+            }}
             alignSelf={'center'}
-            position={'relative'}>
-            <Button
-              colorScheme={'accent-color'}
-              bg={'var(--accent-color)'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'var(--button-hover-color)',
-              }}>
-              Get Started
-            </Button>
-            <Box>
-              <Icon
-                as={Arrow}
-                color={useColorModeValue('var(--text-color)', 'var(--text-light-color)')}
-                w={71}
-                position={'absolute'}
-                right={-71}
-                top={'10px'}
-              />
-              <Text
-                fontSize={'lg'}
-                fontFamily={'Caveat'}
-                position={'absolute'}
-                right={'-125px'}
-                top={'-15px'}
-                transform={'rotate(10deg)'}>
-                Starting at $15/mo
-              </Text>
-            </Box>
-          </Stack>
+          >
+            Get Started
+          </Button>
+          <Box>
+            <Icon
+              as={Arrow}
+              color={useColorModeValue('var(--text-color)', 'var(--text-light-color)')}
+              w={71}
+              position={'absolute'}
+              right={-71}
+              top={'10px'}
+            />
+            <Text
+              fontSize={'lg'}
+              fontFamily={'Caveat'}
+              position={'absolute'}
+              right={'-125px'}
+              top={'-15px'}
+              transform={'rotate(10deg)'}
+            >
+              Starting at $15/mo
+            </Text>
+          </Box>
         </Stack>
-      </Container>
-    </>
+      </Stack>
+    </Container>
   )
 }
 

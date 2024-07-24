@@ -1,11 +1,12 @@
 import { Box } from '@chakra-ui/react';
 import Hero from '../components/Hero'; // Adjust the path if necessary
+import AboutMe from '@/components/AboutMe';
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      {/* Other components or sections can go here */}
+      <AboutMe />
     </main>
   );
 }
