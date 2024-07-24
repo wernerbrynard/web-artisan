@@ -1,0 +1,44 @@
+/* globals.scss */
+
+/* Define color palette */
+:root {
+  --main-color: #103948;
+  --main-color-light: #2a4b6e; /* Light shade of main color */
+  --main-color-dark: #0a2b3b; /* Dark shade of main color */
+  --accent-color: #2f9e44; /* Accent color for buttons or highlights */
+  --background-color: #ffffff; /* Background color */
+  --text-color: #333333; /* Text color for general readability */
+  --text-light-color: #666666; /* Light text color for secondary text */
+  --button-color: #103948; /* Button background color */
+  --button-hover-color: #0d2b3c; /* Button hover color */
+}
+
+/* Apply color palette */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Example usage in components */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--main-color);
+}
+
+button {
+  background-color: var(--button-color);
+  color: #ffffff; /* Button text color */
+}
+
+button:hover {
+  background-color: var(--button-hover-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+a:hover {
+  color: var(--main-color-light);
+}
+
+/* Add more styles as needed */
