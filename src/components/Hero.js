@@ -57,7 +57,7 @@ export default function CallToActionWithAnnotation() {
           >
             Get Started
           </Button>
-          <Box>
+          {/* <Box>
             <Icon
               as={Arrow}
               color={useColorModeValue('var(--text-color)', 'var(--text-light-color)')}
@@ -76,7 +76,7 @@ export default function CallToActionWithAnnotation() {
             >
               Starting at $15/mo
             </Text>
-          </Box>
+          </Box> */}
         </Stack>
       </Stack>
     </Container>
