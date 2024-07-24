@@ -11,6 +11,7 @@ import {
   useColorModeValue,
   createIcon,
 } from '@chakra-ui/react'
+import ScrollToContactButton from './ScrollToContactButton';
 
 export default function CallToActionWithAnnotation() {
   return (
@@ -46,17 +47,7 @@ export default function CallToActionWithAnnotation() {
           align={'center'}
           position={'relative'}
         >
-          <Button
-            colorScheme={'accent-color'}
-            bg={'var(--accent-color)'}
-            rounded={'full'}
-            px={6}
-            _hover={{
-              bg: 'var(--button-hover-color)',
-            }}
-          >
-            Get Started
-          </Button>
+            <ScrollToContactButton />
           {/* <Box>
             <Icon
               as={Arrow}

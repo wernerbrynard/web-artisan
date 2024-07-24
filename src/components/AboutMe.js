@@ -12,6 +12,7 @@ import {
   Box,
   useColorModeValue,
 } from '@chakra-ui/react'
+import ScrollToContactButton from './ScrollToContactButton'
 
 export default function AboutMe() {
   return (
@@ -27,18 +28,7 @@ export default function AboutMe() {
             Connect with us to see how Web Artisan can help transform your digital strategy and achieve your online goals.
           </Text>
           <Stack spacing={4} align={'center'}>
-            <Button
-              colorScheme={'accent-color'}
-              bg={'var(--accent-color)'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'var(--button-hover-color)',
-              }}
-              alignSelf={'center'}
-            >
-              Get in Touch
-            </Button>
+          <ScrollToContactButton />
           </Stack>
         </Stack>
         <Flex direction="column" align="center" justify="center">

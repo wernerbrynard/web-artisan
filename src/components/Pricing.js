@@ -10,6 +10,7 @@ import {
   Button,
   useBreakpointValue,
 } from '@chakra-ui/react'
+// import ScrollToContactButton from './ScrollToContactButton';
 
 export default function Pricing() {
   return (
@@ -95,19 +96,7 @@ export default function Pricing() {
           </Stack>
         </Box>
       </SimpleGrid>
-      {/* <Stack spacing={4} align={'center'} mt={8}>
-        <Button
-          colorScheme={'accent-color'}
-          bg={'var(--accent-color)'}
-          rounded={'full'}
-          px={6}
-          _hover={{
-            bg: 'var(--button-hover-color)',
-          }}
-        >
-          Get in Touch
-        </Button>
-      </Stack> */}
+      {/* <ScrollToContactButton /> */}
     </Container>
   )
 }
