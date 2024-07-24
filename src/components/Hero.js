@@ -19,7 +19,9 @@ export default function CallToActionWithAnnotation() {
         as={Box}
         textAlign={'center'}
         spacing={{ base: 8, md: 14 }}
-        py={{ base: 20, md: 36 }}>
+        py={{ base: 20, md: 36 }}
+        textAlign={{ base: 'left', md: 'center' }} // Update text alignment for mobile
+      >
         <Heading
           fontWeight={600}
           fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
@@ -33,14 +35,19 @@ export default function CallToActionWithAnnotation() {
           </Text>
         </Heading>
         <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-          Expert web development tailored to your business needs. Transform your online presence with a custom solution designed to help you succeed.
+          At Web Artisan, we specialize in creating custom web solutions that meet your unique needs. From dynamic websites to complex web applications, our focus is on delivering effective and user-friendly digital experiences.
+          <br /><br />
+          Our team, led by an experienced developer, is dedicated to understanding your goals and delivering tailored solutions that drive success. We bring creativity and expertise to every project, ensuring your online presence stands out.
+          <br /><br />
+          Connect with us to see how Web Artisan can help transform your digital strategy and achieve your online goals.
         </Text>
         <Stack
           direction={'column'}
           spacing={3}
           align={'center'}
           alignSelf={'center'}
-          position={'relative'}>
+          position={'relative'}
+        >
           <Button
             colorScheme={'accent-color'}
             bg={'var(--accent-color)'}

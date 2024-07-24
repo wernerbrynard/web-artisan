@@ -9,6 +9,8 @@ import {
   Text,
   Stack,
   Button,
+  Box,
+  useColorModeValue,
 } from '@chakra-ui/react'
 
 export default function AboutMe() {
@@ -40,12 +42,27 @@ export default function AboutMe() {
           </Stack>
         </Stack>
         <Flex direction="column" align="center" justify="center">
-          <Image
-            rounded={'md'}
-            alt={'feature image'}
-            src={'/images/me.webp'} // Update this path with your actual image path
-            objectFit={'cover'}
-          />
+          <Box position="relative" display="inline-block">
+            <Image
+              rounded={'md'}
+              alt={'feature image'}
+              src={'/images/me.webp'} // Update this path with your actual image path
+              objectFit={'cover'}
+            />
+            <Box
+              position="absolute"
+              bottom="4"
+              right="4"
+              bg={useColorModeValue('rgba(0, 0, 0, 0.6)', 'rgba(255, 255, 255, 0.6)')}
+              color={useColorModeValue('white', 'black')}
+              p={2}
+              rounded={'md'}
+            >
+              <Text fontSize="lg" fontWeight="bold">
+                Werner Brynard
+              </Text>
+            </Box>
+          </Box>
         </Flex>
       </SimpleGrid>
     </Container>
