@@ -17,10 +17,9 @@ export default function CallToActionWithAnnotation() {
     <Container maxW={'6xl'}>
       <Stack
         as={Box}
-        textAlign={'center'}
         spacing={{ base: 8, md: 14 }}
         py={{ base: 20, md: 36 }}
-        textAlign={{ base: 'left', md: 'center' }} // Update text alignment for mobile
+        textAlign={{ base: 'left', md: 'center' }}
       >
         <Heading
           fontWeight={600}
@@ -45,7 +44,6 @@ export default function CallToActionWithAnnotation() {
           direction={'column'}
           spacing={3}
           align={'center'}
-          alignSelf={'center'}
           position={'relative'}
         >
           <Button
@@ -56,7 +54,6 @@ export default function CallToActionWithAnnotation() {
             _hover={{
               bg: 'var(--button-hover-color)',
             }}
-            alignSelf={'center'}
           >
             Get Started
           </Button>
