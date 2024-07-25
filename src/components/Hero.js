@@ -37,7 +37,7 @@ export default function CallToActionWithAnnotation() {
           fontSize={'lg'}
           textAlign={useBreakpointValue({ base: 'left', md: 'center' })} // Description text alignment
         >
-          At Web Artisan, we specialize in creating custom web solutions that meet your unique needs. From dynamic websites to complex web applications, our focus is on delivering effective and user-friendly digital experiences. Connect with us to see how we can help transform your digital strategy and achieve your online goals.
+          At Web Artisan, we specialise in creating custom web solutions that meet your unique needs. From dynamic websites to complex web applications, our focus is on delivering effective and user-friendly digital experiences. Connect with us to see how we can help transform your digital strategy and achieve your online goals.
         </Text>
         <Stack
           direction={'column'}

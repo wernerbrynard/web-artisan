@@ -33,7 +33,7 @@ export default function AboutMe() {
             Werner&apos;s experience in technologies like React, Next.js, and JavaScript, along with his focus on user-friendly design, positions Web Artisan to tackle a wide range of projects.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={6}>
-            Whether you&apos;re a small business establishing your online presence or a larger organization needing advanced web applications, Web Artisan is equipped to help you achieve your goals.
+            Whether you&apos;re a small business establishing your online presence or a larger organisation needing advanced web applications, Web Artisan is equipped to help you achieve your goals.
           </Text>
           <Stack spacing={6} align={'center'}>
             <ScrollToContactButton />
