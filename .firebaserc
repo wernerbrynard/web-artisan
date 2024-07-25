@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "web-artisan-697d2"
-  }
+    "default": "web-artisan-647d1"
+  },
+  "targets": {},
+  "etags": {}
 }

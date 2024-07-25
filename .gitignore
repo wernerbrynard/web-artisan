@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+*.log
+dist/
+functions/node_modules/ # Ignoring node_modules inside functions directory
