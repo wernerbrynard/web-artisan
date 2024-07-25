@@ -1,3 +1,4 @@
+// src/components/Pricing.js
 'use client'
 
 import {

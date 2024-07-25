@@ -1,3 +1,4 @@
+// src/components/NavBar.js
 'use client'
 
 import {
@@ -22,6 +23,9 @@ export default function NavBar() {
       bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.800'}
       px={4}
       borderBottom={`1px solid ${theme.colors['var(--main-color-dark)']}`}
+      position="sticky" // Use 'sticky' for better performance and ease
+      top={0}
+      zIndex={1000} // Ensure it's above other elements
     >
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Flex alignItems={'center'}>
