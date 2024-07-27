@@ -1,5 +1,7 @@
-import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+// src/config/firebase-config.js
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAnalytics, isSupported } from 'firebase/analytics';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,5 +17,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+let analytics;
 
-export { db };
+if (typeof window !== "undefined") {
+    isSupported().then((yes) => {
+        if (yes) {
+            analytics = getAnalytics(app);
+        }
+    });
+}
+
+export { db, analytics };

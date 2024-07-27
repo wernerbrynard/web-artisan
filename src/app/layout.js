@@ -3,9 +3,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
-import "../app/globals.scss";
 import Footer from "@/components/Footer";
-import theme from "../theme/theme"; // Import the shared theme
+import theme from "../theme/theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +38,19 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <link rel="icon" href="/src/app/favicon.ico" />
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* Open Graph */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <meta property="og:site_name" content={metadata.openGraph.site_name} />
+        {/* Twitter */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.image} />
         {/* Other head elements */}
       </Head>
       <body className={inter.className} style={{ backgroundColor: 'var(--background-color)' }}>
