@@ -2,8 +2,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Head from 'next/head';
-import NavBar from '../components/NavBar'; // Adjust the path if necessary
-import "./globals.scss";
+import NavBar from '../components/NavBar';
+import "../app/globals.scss";
+import Footer from "@/components/Footer";
+import theme from "../theme/theme"; // Import the shared theme
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,10 +41,11 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/src/app/favicon.ico" />
         {/* Other head elements */}
       </Head>
-      <body className={inter.className}>
+      <body className={inter.className} style={{ backgroundColor: 'var(--background-color)' }}>
         <ChakraProvider>
           <NavBar />
           {children}
+          <Footer />
         </ChakraProvider>
       </body>
     </html>

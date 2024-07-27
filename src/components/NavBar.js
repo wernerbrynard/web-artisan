@@ -42,7 +42,7 @@ export default function NavBar() {
     <Box
       bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.800'}
       px={4}
-      borderBottom={`1px solid ${theme.colors['var(--main-color-dark)']}`}
+      borderBottom={`1px solid ${theme.colors.mainColorDark || 'var(--main-color-dark)'}`}
       position="sticky"
       top={0}
       zIndex={1000}
@@ -61,8 +61,8 @@ export default function NavBar() {
           </Flex>
         </ChakraLink>
         <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }} ml="auto">
-          <ChakraLink as={NextLink} href="/about-werner" ml={4}>
-            About Werner
+          <ChakraLink as={NextLink} href="/about-werner" ml={4} color="var(--main-color)">
+            About
           </ChakraLink>
         </Flex>
         {/* Mobile Hamburger Menu */}
@@ -72,6 +72,9 @@ export default function NavBar() {
           variant="outline"
           onClick={onOpen}
           display={{ base: 'flex', md: 'none' }}
+          color="var(--main-color)"
+          borderColor="var(--main-color)"
+          _hover={{ bg: 'var(--accent-color)', color: 'white' }}
         />
         <Drawer
           isOpen={isOpen}
@@ -80,18 +83,20 @@ export default function NavBar() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Explore</DrawerHeader>
+          <DrawerContent bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.700'}>
+            <DrawerCloseButton color={colorMode === 'light' ? 'var(--main-color)' : 'white'} />
+            <DrawerHeader borderBottomWidth="1px" borderColor={colorMode === 'light' ? 'gray.200' : 'gray.600'}>
+              Web Artisan
+            </DrawerHeader>
             <DrawerBody>
               <Stack spacing={4}>
-                <ChakraLink as={NextLink} href="/" onClick={onClose}>
+                <ChakraLink as={NextLink} href="/" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   Home
                 </ChakraLink>
-                <ChakraLink as={NextLink} href="/about-werner" onClick={onClose}>
+                <ChakraLink as={NextLink} href="/about-werner" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   About Werner
                 </ChakraLink>
-                <ChakraLink href="#contact-form" onClick={handleScrollToContact}>
+                <ChakraLink href="#contact-form" onClick={handleScrollToContact} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   Contact
                 </ChakraLink>
                 {/* Add more links as needed */}

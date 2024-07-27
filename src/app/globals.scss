@@ -2,15 +2,16 @@
 
 /* Define color palette */
 :root {
-  --main-color: #103948;
+  --main-color: #103948; /* Dark Navy Blue */
   --main-color-light: #2a4b6e; /* Light shade of main color */
   --main-color-dark: #0a2b3b; /* Dark shade of main color */
-  --accent-color: #2f9e44; /* Accent color for buttons or highlights */
-  --background-color: #ffffff; /* Background color */
-  --text-color: #333333; /* Text color for general readability */
-  --text-light-color: #666666; /* Light text color for secondary text */
-  --button-color: #103948; /* Button background color */
-  --button-hover-color: #0d2b3c; /* Button hover color */
+  --accent-color: #2F855A; /* Muted Green */
+  --background-color: #FFFFFF; /* White Background */
+  --text-color: #2D3748; /* Dark Charcoal for primary text */
+  --text-light-color: #718096; /* Muted Blue-Grey for secondary text */
+  --highlight-color: #F6AD55; /* Warm muted orange for highlights */
+  --button-color: #2F855A; /* Button background color */
+  --button-hover-color: #2C7A7B; /* Button hover color */
 }
 
 /* Apply color palette */
@@ -19,7 +20,6 @@ body {
   color: var(--text-color);
 }
 
-/* Example usage in components */
 h1, h2, h3, h4, h5, h6 {
   color: var(--main-color);
 }
@@ -34,11 +34,11 @@ button:hover {
 }
 
 a {
-  color: var(--main-color);
+  color: var(--accent-color);
 }
 
 a:hover {
-  color: var(--main-color-light);
+  color: var(--highlight-color);
 }
 
 /* Add more styles as needed */
