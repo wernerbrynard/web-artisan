@@ -2,16 +2,17 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Head from 'next/head';
+import NavBar from '../components/NavBar'; // Adjust the path if necessary
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Web Artisan - Custom Web Solutions",
-  description: "Web Artisan specializes in creating custom web solutions tailored to your business needs.",
+  description: "Web Artisan specialises in creating custom web solutions tailored to your business needs.",
   openGraph: {
     title: 'Web Artisan - Custom Web Solutions',
-    description: 'Web Artisan specializes in creating custom web solutions tailored to your business needs.',
+    description: 'Web Artisan specialises in creating custom web solutions tailored to your business needs.',
     url: 'https://web-artisan-697d2.web.app/',
     images: [
       {
@@ -26,7 +27,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Web Artisan - Custom Web Solutions',
-    description: 'Web Artisan specializes in creating custom web solutions tailored to your business needs.',
+    description: 'Web Artisan specialises in creating custom web solutions tailored to your business needs.',
     image: 'https://web-artisan-697d2.web.app/images/logo.jpg',
   }
 };
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className={inter.className}>
         <ChakraProvider>
+          <NavBar />
           {children}
         </ChakraProvider>
       </body>
