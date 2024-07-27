@@ -1,14 +1,17 @@
 // src/app/layout.js
+"use client"; // Mark this as a client component
+
 import { ChakraProvider } from "@chakra-ui/react";
 import { Inter } from "next/font/google";
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import Footer from "@/components/Footer";
 import theme from "../theme/theme";
+import "../app/globals.scss"; // Ensure global styles are included
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+const metadata = {
   title: "Web Artisan - Custom Web Solutions",
   description: "Web Artisan specialises in creating custom web solutions tailored to your business needs.",
   openGraph: {
@@ -54,7 +57,7 @@ export default function RootLayout({ children }) {
         {/* Other head elements */}
       </Head>
       <body className={inter.className} style={{ backgroundColor: 'var(--background-color)' }}>
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
           <NavBar />
           {children}
           <Footer />
