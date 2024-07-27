@@ -8,6 +8,10 @@
     ],
     "rewrites": [
       {
+        "source": "/about-werner",
+        "destination": "/about-werner.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
