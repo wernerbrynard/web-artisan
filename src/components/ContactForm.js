@@ -69,10 +69,10 @@ export default function ContactForm() {
         border={`1px solid var(--main-color-dark)`}
         onSubmit={handleSubmit}
       >
-        <Stack spacing={6}>
+        <Stack spacing={6} textAlign={'center'}>
           <Stack spacing={4}>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              We’d love to hear from you! Please fill out the form below, and we’ll get back to you as soon as possible.
+              We’d love to hear from you! Based in Cape Town, we work with clients locally and globally.<br /> Please fill out the form below, and we’ll get back to you as soon as possible.
             </Text>
             <Stack spacing={4}>
               <Input

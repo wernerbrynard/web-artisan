@@ -21,7 +21,7 @@ export default function AboutWernerPage() {
             July 2024 &ndash; Present
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-            Founded Web Artisan to provide bespoke web solutions. Specialising in building custom websites, applications, and enterprise solutions. I focus on leveraging a wide range of technologies like React, Next.js, and Firebase to deliver robust, scalable solutions. I am flexible in technology choice, ensuring the best fit for each project&apos;s unique requirements.
+            As the founder of Web Artisan, based in Cape Town, I focus on providing bespoke web solutions to clients worldwide. I specialise in building custom websites, applications, and enterprise solutions that meet unique project requirements.
           </Text>
 
           <Text color={'var(--text-light-color)'} mt={2} fontSize={'lg'}>
