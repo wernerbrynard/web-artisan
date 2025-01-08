@@ -12,11 +12,11 @@ import "../app/globals.scss"; // Ensure global styles are included
 const inter = Inter({ subsets: ["latin"] });
 
 const metadata = {
-  title: "Web Artisan - Custom Web Solutions",
-  description: "Web Artisan specialises in creating custom web solutions tailored to your business needs.",
+  title: "Web Artisan | Tailored Web Solutions in Cape Town",
+  description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
   openGraph: {
-    title: 'Web Artisan - Custom Web Solutions',
-    description: 'Web Artisan specialises in creating custom web solutions tailored to your business needs.',
+    title: 'Web Artisan | Tailored Web Solutions in Cape Town',
+    description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
     url: 'https://web-artisan-697d2.web.app/',
     images: [
       {
@@ -30,8 +30,8 @@ const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Web Artisan - Custom Web Solutions',
-    description: 'Web Artisan specialises in creating custom web solutions tailored to your business needs.',
+    title: 'Web Artisan | Tailored Web Solutions in Cape Town',
+    description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
     image: 'https://web-artisan-697d2.web.app/images/logo.jpg',
   }
 };
