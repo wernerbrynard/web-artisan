@@ -72,7 +72,7 @@ export default function ContactForm() {
         <Stack spacing={6} textAlign={'center'}>
           <Stack spacing={4}>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              We’d love to hear from you! Based in Cape Town, we work with clients locally and globally.<br /> Please fill out the form below, and we’ll get back to you as soon as possible.
+              We&apos;d love to hear from you! Based in Cape Town, we work with clients locally and globally.<br /> Please fill out the form below, and we&apos;ll get back to you as soon as possible.
             </Text>
             <Stack spacing={4}>
               <Input

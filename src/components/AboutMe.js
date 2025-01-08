@@ -27,7 +27,7 @@ export default function AboutMe() {
             About Web Artisan
           </Heading>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-            At Web Artisan, proudly based in Cape Town, we combine creative expertise with technical know-how to deliver custom web solutions tailored to your business needs. Whether you're a local business or an international organisation, we can help you achieve your goals.
+            At Web Artisan, proudly based in Cape Town, we combine creative expertise with technical know-how to deliver custom web solutions tailored to your business needs. Whether you&apos;re a local business or an international organisation, we can help you achieve your goals.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
             Werner&apos;s experience in technologies like React, Next.js, and JavaScript, along with his focus on user-friendly design, positions Web Artisan to tackle a wide range of projects.
