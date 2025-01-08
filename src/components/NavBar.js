@@ -64,6 +64,9 @@ export default function NavBar() {
           <ChakraLink as={NextLink} href="/about-werner" ml={4} color="var(--main-color)">
             About
           </ChakraLink>
+          <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)">
+            Contact
+          </ChakraLink>
         </Flex>
         {/* Mobile Hamburger Menu */}
         <IconButton
@@ -94,7 +97,7 @@ export default function NavBar() {
                   Home
                 </ChakraLink>
                 <ChakraLink as={NextLink} href="/about-werner" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
-                  About Werner
+                  About
                 </ChakraLink>
                 <ChakraLink href="#contact-form" onClick={handleScrollToContact} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   Contact
