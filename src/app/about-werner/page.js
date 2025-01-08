@@ -1,8 +1,11 @@
 // src/pages/about-werner.js
-import { Container, Heading, Text, Stack, Box, useColorModeValue } from '@chakra-ui/react';
-import ContactForm from '../components/ContactForm';
 
-export default function AboutWernerPage() {
+"use client";
+
+import { Container, Heading, Text, Stack, Box, useColorModeValue } from '@chakra-ui/react';
+import ContactForm from '../../components/ContactForm';
+
+export default function AboutWerner() {
   return (
     <Container maxW={'5xl'} py={12}>
       <Stack spacing={6}>
