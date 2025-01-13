@@ -121,6 +121,9 @@ export default function ContactForm() {
             >
               Send Message
             </Button>
+            <Text color={'var(--text-light-color)'} fontSize={'sm'} mt={4}>
+              Web Artisan Studios (PTY) LTD | Registration No: 2025/012325/07
+            </Text>
           </Stack>
         </Stack>
       </Box>

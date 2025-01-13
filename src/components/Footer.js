@@ -7,9 +7,9 @@ const Footer = () => {
       <Text fontSize="sm">
         &copy; {new Date().getFullYear()} Web Artisan Studios (PTY) LTD. All rights reserved.
       </Text>
-      <Text fontSize="xs" mt={2}>
+      {/* <Text fontSize="xs" mt={2}>
         Registration No: 2025/012325/07
-      </Text>
+      </Text> */}
     </Box>
   );
 };
