@@ -1,5 +1,4 @@
-// src/components/AboutMe.js
-'use client'
+'use client';
 
 import {
   Container,
@@ -12,8 +11,8 @@ import {
   Box,
   useBreakpointValue,
   useColorModeValue,
-} from '@chakra-ui/react'
-import ScrollToContactButton from './ScrollToContactButton'
+} from '@chakra-ui/react';
+import ScrollToContactButton from './ScrollToContactButton';
 
 export default function AboutMe() {
   return (
@@ -30,7 +29,7 @@ export default function AboutMe() {
             At Web Artisan, proudly based in Cape Town, we combine creative expertise with technical know-how to deliver custom web solutions tailored to your business needs. Whether you&apos;re a local business or an international organisation, we can help you achieve your goals.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-            Werner&apos;s experience in technologies like React, Next.js, and JavaScript, along with his focus on user-friendly design, positions Web Artisan to tackle a wide range of projects.
+            Led by Werner&apos;s extensive experience in technologies like React, Next.js, and JavaScript, Web Artisan Studios (PTY) LTD is a trusted partner for businesses locally and globally. As a registered private company in South Africa, we are committed to delivering professional, user-friendly, and innovative web solutions.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={6}>
             Whether you&apos;re a small business establishing your online presence or a larger organisation needing advanced web applications, Web Artisan is equipped to help you achieve your goals.
@@ -64,5 +63,5 @@ export default function AboutMe() {
         </Flex>
       </SimpleGrid>
     </Container>
-  )
+  );
 }
