@@ -1,5 +1,5 @@
 // src/components/Pricing.js
-'use client'
+'use client';
 
 import {
   Container,
@@ -8,10 +8,8 @@ import {
   Heading,
   Text,
   Stack,
-  Button,
   useBreakpointValue,
-} from '@chakra-ui/react'
-// import ScrollToContactButton from './ScrollToContactButton';
+} from '@chakra-ui/react';
 
 export default function Pricing() {
   return (
@@ -51,7 +49,7 @@ export default function Pricing() {
               Follow-Up Consultations
             </Heading>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              R1200 per hour
+              $75 USD / R1,200 ZAR per hour
             </Text>
             <Text color={'var(--text-light-color)'} fontSize={'md'}>
               Charged for additional project planning, detailed consultations, or strategy sessions beyond the initial consultation.
@@ -70,7 +68,7 @@ export default function Pricing() {
               Project Work
             </Heading>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              R1200 per hour
+              $75 USD / R1,200 ZAR per hour
             </Text>
             <Text color={'var(--text-light-color)'} fontSize={'md'}>
               Applied to all development and implementation work. Estimated hours will be communicated.
@@ -97,7 +95,14 @@ export default function Pricing() {
           </Stack>
         </Box>
       </SimpleGrid>
-      {/* <ScrollToContactButton /> */}
+      <Text
+        color={'var(--text-light-color)'}
+        fontSize={'sm'}
+        textAlign={'center'}
+        mt={8}
+      >
+        USD pricing applies to international clients, while ZAR pricing applies to South African clients. Both rates are fixed and independent of exchange rate fluctuations, ensuring transparent and predictable costs for all clients.
+      </Text>
     </Container>
-  )
+  );
 }
