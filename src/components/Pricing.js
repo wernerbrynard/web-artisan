@@ -49,7 +49,7 @@ export default function Pricing() {
               Follow-Up Consultations
             </Heading>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              $75 USD / R1,200 ZAR per hour
+              $80 USD / R1,400 ZAR per hour
             </Text>
             <Text color={'var(--text-light-color)'} fontSize={'md'}>
               Charged for additional project planning, detailed consultations, or strategy sessions beyond the initial consultation.
@@ -68,7 +68,7 @@ export default function Pricing() {
               Project Work
             </Heading>
             <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              $75 USD / R1,200 ZAR per hour
+              $80 USD / R1,400 ZAR per hour
             </Text>
             <Text color={'var(--text-light-color)'} fontSize={'md'}>
               Applied to all development and implementation work. Estimated hours will be communicated.
