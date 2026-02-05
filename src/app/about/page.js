@@ -32,7 +32,7 @@ export default function About() {
              <Heading size="md" mb={4} color={'var(--accent-color)'}>What Sets Us Apart</Heading>
              <Stack spacing={3}>
                <Text><strong>Technical Excellence:</strong> Deep expertise in modern stacks like React, Next.js, and Cloud Infrastructure.</Text>
-               <Text><strong>Business First:</strong> We don't just write code; we solve business problems.</Text>
+               <Text><strong>Business First:</strong> We don&apos;t just write code; we solve business problems.</Text>
                <Text><strong>Full Cycle:</strong> From initial concept and design to deployment and maintenance.</Text>
              </Stack>
           </Box>
@@ -72,8 +72,7 @@ export default function About() {
                 </Box>
                 <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
                     <Heading size="md" color={'gray.400'}>ENTERPRISE LOGISTICS</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">PlSelect Project Experience</Heading>
-          <Text fontSize="sm" color="gray.500" mb={6}>* Includes work delivered by leadership in previous roles.</Text
+                    <Text fontSize="sm" mt={2} color="gray.500">Platform (NDA)</Text>
                 </Box>
             </SimpleGrid>
         </Box>
@@ -81,7 +80,7 @@ export default function About() {
         {/* Founder's Experience */}
         <Box textAlign="center" pt={10} borderTop="1px" borderColor="gray.100">
             <Heading size="md" mb={6} color={'var(--text-light-color)'} fontWeight="normal" letterSpacing="wide" textTransform="uppercase" fontSize="sm">
-                Founder's Engineering Background
+                Founder&apos;s Engineering Background
             </Heading>
             <Text color={'var(--text-light-color)'} mb={8} fontSize={'md'} maxW="2xl" mx="auto">
                 Prior to Web Artisan, our leadership delivered critical software for these industry giants:
@@ -97,8 +96,8 @@ export default function About() {
 
         {/* Featured Projects Section */}
         <Box bg={useColorModeValue('gray.50', 'gray.700')} p={8} rounded={'lg'} shadow={'lg'}>
-          <Heading size="md" color={'var(--accent-color)'} mb={6}>Featured Experience</Heading>
-
+          <Heading size="md" color={'var(--accent-color)'} mb={6}>Select Project Experience</Heading>
+          <Text fontSize="sm" color="gray.500" mb={6}>* Includes work delivered by leadership in previous roles.</Text>
           <Stack spacing={6}>
             <Box>
                 <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Laughing Cow Campaign</Text>
