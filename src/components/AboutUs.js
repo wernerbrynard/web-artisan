@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import ScrollToContactButton from './ScrollToContactButton';
 
-export default function AboutMe() {
+export default function AboutUs() {
   return (
     <Container maxW={'5xl'} py={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -26,13 +26,13 @@ export default function AboutMe() {
             About Web Artisan
           </Heading>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-            At Web Artisan, proudly based in Cape Town, we combine creative expertise with technical know-how to deliver custom web solutions tailored to your business needs. Whether you&apos;re a local business or an international organisation, we can help you achieve your goals.
+            Web Artisan Studios, based in Cape Town, is a digital agency dedicated to crafting exceptional web experiences. We combine creative design with robust engineering to deliver custom solutions that drive business growth. From local partners to international enterprises, we help brands establish a commanding digital presence.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-            Led by Werner&apos;s extensive experience in technologies like React, Next.js, and JavaScript, Web Artisan Studios (PTY) LTD is a trusted partner for businesses locally and globally. As a registered private company in South Africa, we are committed to delivering professional, user-friendly, and innovative web solutions.
+            Founded on the principles of craftsmanship and technical excellence, Web Artisan Studios (PTY) LTD partners with clients to navigate the complex digital landscape. Our team leverages cutting-edge technologies like React, Next.js, and Cloud Infrastructure to build scalable, high-performance applications.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={6}>
-            Whether you&apos;re a small business establishing your online presence or a larger organisation needing advanced web applications, Web Artisan is equipped to help you achieve your goals.
+            With leadership grounded in years of industry experience, we bring a level of professionalism and insight that ensures every project is delivered to the highest standard.
           </Text>
           <Stack spacing={6} align={'center'}>
             <ScrollToContactButton />

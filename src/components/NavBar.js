@@ -61,7 +61,7 @@ export default function NavBar() {
           </Flex>
         </ChakraLink>
         <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }} ml="auto">
-          <ChakraLink as={NextLink} href="/about-werner" ml={4} color="var(--main-color)">
+          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)">
             About
           </ChakraLink>
           <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)">
@@ -96,7 +96,7 @@ export default function NavBar() {
                 <ChakraLink as={NextLink} href="/" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   Home
                 </ChakraLink>
-                <ChakraLink as={NextLink} href="/about-werner" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
+                <ChakraLink as={NextLink} href="/about" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   About
                 </ChakraLink>
                 <ChakraLink href="#contact-form" onClick={handleScrollToContact} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
