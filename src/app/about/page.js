@@ -1,7 +1,7 @@
 // src/app/about/page.js
 "use client";
 
-import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
+import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue, Image } from '@chakra-ui/react';
 import ContactForm from '../../components/ContactForm';
 
 export default function About() {
@@ -43,9 +43,17 @@ export default function About() {
             <Heading size="xl" textAlign="center" mb={10} color={'var(--main-color)'}>Leadership</Heading>
             <Box bg={useColorModeValue('white', 'gray.800')} p={8} rounded={'xl'} shadow={'xl'} border="1px" borderColor="gray.100">
                 <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center">
-                    {/* Placeholder for Image if you want to add it back later
-                    <Box w={{ base: 'full', md: '300px' }} h="300px" bg="gray.200" rounded="lg"></Box>
-                    */}
+                    <Box flexShrink={0}>
+                      <Image
+                        rounded={'lg'}
+                        alt={'Werner Brynard - Founder'}
+                        src={'/images/me.webp'}
+                        objectFit={'cover'}
+                        h={{ base: '200px', md: '300px' }}
+                        w={{ base: '200px', md: '300px' }}
+                        boxShadow={'lg'}
+                      />
+                    </Box>
                     <Box flex={1}>
                         <Heading size="lg" mb={2}>Werner Brynard</Heading>
                         <Text color={'var(--accent-color)'} fontWeight="bold" mb={4}>Founder & Technical Lead</Text>
