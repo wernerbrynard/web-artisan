@@ -69,6 +69,41 @@ export default function About() {
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">LAUGHING COW</Text>
             </SimpleGrid>
         </Box>
+
+        {/* Featured Projects Section */}
+        <Box bg={useColorModeValue('gray.50', 'gray.700')} p={8} rounded={'lg'} shadow={'lg'}>
+          <Heading size="md" color={'var(--accent-color)'} mb={6}>Featured Experience</Heading>
+
+          <Stack spacing={6}>
+            <Box>
+                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Laughing Cow Campaign</Text>
+                <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                  Created a React-based engagement platform for a children&apos;s competition. The interactive site allowed users to select characters and enter draws, focusing on high engagement and simple, fun UI.
+                </Text>
+            </Box>
+
+            <Box>
+                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Nedbank MoneyEdge</Text>
+                <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                  Developed a Next.js platform integrating with Strapi and Microsoft Community Learning to offer financial literacy courses.
+                </Text>
+            </Box>
+
+            <Box>
+                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Klick & Pay (BAT)</Text>
+                 <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                  Built a cross-platform mobile application for product management and user interactions using Xamarin.
+                </Text>
+            </Box>
+
+             <Box>
+                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>DEX (Distell)</Text>
+                <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                   Facilitated event management and user engagement through a custom mobile application.
+                </Text>
+            </Box>
+          </Stack>
+        </Box>
         
         <Box mt={10}>
           <ContactForm />
