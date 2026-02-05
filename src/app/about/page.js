@@ -64,7 +64,7 @@ export default function About() {
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">DISTELL</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">BAT</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">CAPITEC</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">DISNEY</Text>
+                {/* <Text fontWeight="bold" fontSize="xl" color="gray.500">DISNEY</Text> */}
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">NEDBANK</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">LAUGHING COW</Text>
             </SimpleGrid>
