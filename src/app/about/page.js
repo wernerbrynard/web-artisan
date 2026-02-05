@@ -42,19 +42,7 @@ export default function About() {
         <Box>
             <Heading size="xl" textAlign="center" mb={10} color={'var(--main-color)'}>Leadership</Heading>
             <Box bg={useColorModeValue('white', 'gray.800')} p={8} rounded={'xl'} shadow={'xl'} border="1px" borderColor="gray.100">
-                <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center">
-                    <Box flexShrink={0}>
-                      <Image
-                        rounded={'lg'}
-                        alt={'Werner Brynard - Founder'}
-                        src={'/images/me.webp'}
-                        objectFit={'cover'}
-                        h={{ base: '200px', md: '300px' }}
-                        w={{ base: '200px', md: '300px' }}
-                        boxShadow={'lg'}
-                      />
-                    </Box>
-                    <Box flex={1}>
+                <Box textAlign="center">
                         <Heading size="lg" mb={2}>Werner Brynard</Heading>
                         <Text color={'var(--accent-color)'} fontWeight="bold" mb={4}>Founder & Technical Lead</Text>
                         <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={4}>
@@ -63,8 +51,7 @@ export default function About() {
                         <Text color={'var(--text-light-color)'} fontSize={'md'}>
                             Previously a Senior Developer at Maverick Labs, he has delivered critical software for major brands like Distell, BAT, and Capitec. Now, he brings that enterprise-grade discipline to every client project at Web Artisan.
                         </Text>
-                    </Box>
-                </Stack>
+                </Box>
             </Box>
         </Box>
         
