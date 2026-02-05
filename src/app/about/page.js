@@ -49,10 +49,23 @@ export default function About() {
                             With over 9 years of industry experience, Werner leads Web Artisan with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
                         </Text>
                         <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                            Previously a Senior Developer at Maverick Labs, he has delivered critical software for major brands like Distell, BAT, and Capitec. Now, he brings that enterprise-grade discipline to every client project at Web Artisan.
+                            He has architected and delivered critical software solutions for industry leaders including Distell, BAT, and Capitec. Today, he brings that same enterprise-grade discipline and technical rigor to every client partnership at Web Artisan.
                         </Text>
                 </Box>
             </Box>
+        </Box>
+
+        {/* Selected Brands / Experience Section */}
+        <Box textAlign="center">
+            <Heading size="lg" mb={8} color={'var(--text-light-color)'} fontWeight="normal">Trusted experience delivering for major brands</Heading>
+            <SimpleGrid columns={{ base: 2, md: 3, lg: 6 }} spacing={8} alignItems="center" opacity={0.7}>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">DISTELL</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">BAT</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">CAPITEC</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">DISNEY</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">NEDBANK</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">LAUGHING COW</Text>
+            </SimpleGrid>
         </Box>
         
         <Box mt={10}>
