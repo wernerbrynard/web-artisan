@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import Hero from '../components/Hero'; // Adjust the path if necessary
 import AboutUs from '@/components/AboutUs';
 import NavBar from '@/components/NavBar';
-import Pricing from '@/components/Pricing';
+import ServicesSection from '@/components/ServicesSection';
 import ContactForm from '@/components/ContactForm';
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
     <main>
       <Hero />
       <AboutUs />
-      <Pricing />
+      <ServicesSection />
       <ContactForm />
     </main>
   );
