@@ -13,8 +13,6 @@ import {
   useToast,
 } from '@chakra-ui/react'
 import { useState } from 'react'
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../config/firebase-config'
 
 export default function ContactForm() {
   const [name, setName] = useState('')
@@ -27,12 +25,18 @@ export default function ContactForm() {
     event.preventDefault()
     setIsSubmitting(true)
     try {
-      await addDoc(collection(db, 'contactMessages'), {
-        name,
-        email,
-        message,
-        createdAt: new Date(),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
       })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
       toast({
         title: 'Message sent!',
         description: 'We have received your message and will get back to you soon.',
