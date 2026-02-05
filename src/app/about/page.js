@@ -59,20 +59,62 @@ export default function About() {
         <Box textAlign="center">
             <Heading size="lg" mb={8} color={'var(--main-color)'}>Current Highlights</Heading>
             <Text color={'var(--text-light-color)'} mb={8} fontSize={'lg'} maxW="3xl" mx="auto">
-                We are currently focused on delivering high-impact solutions for niche industries, including motorsport and specialized retail.
+                We are currently focused on delivering digital excellence for specialized brands and high-performance industries.
             </Text>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} alignItems="center" justifyContent="center">
-                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} alignItems="stretch">
+                <Box 
+                    as="a" 
+                    href="https://miragearco.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    p={6} 
+                    border="1px" 
+                    borderColor="gray.100" 
+                    rounded="xl" 
+                    shadow="sm"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                >
                     <Heading size="md" color={'var(--accent-color)'}>MIRA</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">Motorcycle Industry</Text>
+                    <Text fontSize="sm" mt={2} color="gray.500">
+                        Premium custom off-road riding gear built for performance and durability.
+                    </Text>
                 </Box>
-                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
+                <Box 
+                    as="a" 
+                    href="https://sarahkashyap.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    p={6} 
+                    border="1px" 
+                    borderColor="gray.100" 
+                    rounded="xl" 
+                    shadow="sm"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                >
                     <Heading size="md" color={'var(--accent-color)'}>SARAH KASHYAP</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">Professional Rally Racer</Text>
+                    <Text fontSize="sm" mt={2} color="gray.500">
+                        India&apos;s pioneering cross-country rally athlete and motorsport advocate.
+                    </Text>
                 </Box>
-                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
-                    <Heading size="md" color={'gray.400'}>ENTERPRISE LOGISTICS</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">Platform (NDA)</Text>
+                <Box 
+                    as="a" 
+                    href="https://sporthelicopterscapetown.co.za/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    p={6} 
+                    border="1px" 
+                    borderColor="gray.100" 
+                    rounded="xl" 
+                    shadow="sm"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                >
+                    <Heading size="md" color={'var(--accent-color)'}>SPORT HELICOPTERS</Heading>
+                    <Text fontSize="sm" mt={2} color="gray.500">
+                        Cape Town&apos;s leading helicopter tour operator and aviation charter service.
+                    </Text>
                 </Box>
             </SimpleGrid>
         </Box>
