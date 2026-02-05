@@ -58,7 +58,9 @@ export default function About() {
         {/* Selected Brands / Experience Section */}
         <Box textAlign="center">
             <Heading size="lg" mb={8} color={'var(--text-light-color)'} fontWeight="normal">Trusted experience delivering for major brands</Heading>
-            <SimpleGrid columns={{ base: 2, md: 3, lg: 6 }} spacing={8} alignItems="center" opacity={0.7}>
+            <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={8} alignItems="center" opacity={0.7}>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">MIRA</Text>
+                <Text fontWeight="bold" fontSize="xl" color="gray.500">SARAH KASHYAP</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">DISTELL</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">BAT</Text>
                 <Text fontWeight="bold" fontSize="xl" color="gray.500">CAPITEC</Text>
