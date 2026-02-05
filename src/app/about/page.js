@@ -55,18 +55,43 @@ export default function About() {
             </Box>
         </Box>
 
-        {/* Selected Brands / Experience Section */}
+        {/* Current Agency Clients */}
         <Box textAlign="center">
-            <Heading size="lg" mb={8} color={'var(--text-light-color)'} fontWeight="normal">Trusted experience delivering for major brands</Heading>
-            <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={8} alignItems="center" opacity={0.7}>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">MIRA</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">SARAH KASHYAP</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">DISTELL</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">BAT</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">CAPITEC</Text>
-                {/* <Text fontWeight="bold" fontSize="xl" color="gray.500">DISNEY</Text> */}
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">NEDBANK</Text>
-                <Text fontWeight="bold" fontSize="xl" color="gray.500">LAUGHING COW</Text>
+            <Heading size="lg" mb={8} color={'var(--main-color)'}>Current Highlights</Heading>
+            <Text color={'var(--text-light-color)'} mb={8} fontSize={'lg'} maxW="3xl" mx="auto">
+                We are currently focused on delivering high-impact solutions for niche industries, including motorsport and specialized retail.
+            </Text>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} alignItems="center" justifyContent="center">
+                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
+                    <Heading size="md" color={'var(--accent-color)'}>MIRA</Heading>
+                    <Text fontSize="sm" mt={2} color="gray.500">Motorcycle Industry</Text>
+                </Box>
+                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
+                    <Heading size="md" color={'var(--accent-color)'}>SARAH KASHYAP</Heading>
+                    <Text fontSize="sm" mt={2} color="gray.500">Professional Rally Racer</Text>
+                </Box>
+                <Box p={6} border="1px" borderColor="gray.100" rounded="xl" shadow="sm">
+                    <Heading size="md" color={'gray.400'}>ENTERPRISE LOGISTICS</Heading>
+                    <Text fontSize="sm" mt={2} color="gray.500">PlSelect Project Experience</Heading>
+          <Text fontSize="sm" color="gray.500" mb={6}>* Includes work delivered by leadership in previous roles.</Text
+                </Box>
+            </SimpleGrid>
+        </Box>
+
+        {/* Founder's Experience */}
+        <Box textAlign="center" pt={10} borderTop="1px" borderColor="gray.100">
+            <Heading size="md" mb={6} color={'var(--text-light-color)'} fontWeight="normal" letterSpacing="wide" textTransform="uppercase" fontSize="sm">
+                Founder's Engineering Background
+            </Heading>
+            <Text color={'var(--text-light-color)'} mb={8} fontSize={'md'} maxW="2xl" mx="auto">
+                Prior to Web Artisan, our leadership delivered critical software for these industry giants:
+            </Text>
+            <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} spacing={8} alignItems="center" opacity={0.6}>
+                <Text fontWeight="bold" fontSize="lg" color="gray.500">DISTELL</Text>
+                <Text fontWeight="bold" fontSize="lg" color="gray.500">BAT</Text>
+                <Text fontWeight="bold" fontSize="lg" color="gray.500">CAPITEC</Text>
+                <Text fontWeight="bold" fontSize="lg" color="gray.500">NEDBANK</Text>
+                <Text fontWeight="bold" fontSize="lg" color="gray.500">LAUGHING COW</Text>
             </SimpleGrid>
         </Box>
 
