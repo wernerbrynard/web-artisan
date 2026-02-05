@@ -4,7 +4,20 @@
 import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue, Image } from '@chakra-ui/react';
 import ContactForm from '../../components/ContactForm';
 
+const calculateYears = () => {
+    const startDate = new Date('2015-03-01');
+    const today = new Date();
+    let years = today.getFullYear() - startDate.getFullYear();
+    const m = today.getMonth() - startDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < startDate.getDate())) {
+        years--;
+    }
+    return years;
+};
+
 export default function About() {
+  const yearsExperience = calculateYears();
+
   return (
     <Container maxW={'6xl'} py={12}>
       <Stack spacing={12}>
@@ -40,135 +53,134 @@ export default function About() {
 
         {/* Leadership Section */}
         <Box>
-            <Heading size="xl" textAlign="center" mb={10} color={'var(--main-color)'}>Leadership</Heading>
+            <Heading size="xl" textAlign="center" mb={10} color={'var(--main-color)'}>Leadership & Experience</Heading>
             <Box bg={useColorModeValue('white', 'gray.800')} p={8} rounded={'xl'} shadow={'xl'} border="1px" borderColor="gray.100">
-                <Box textAlign="center">
+                <Box textAlign="center" mb={12}>
                         <Heading size="lg" mb={2}>Werner Brynard</Heading>
                         <Text color={'var(--accent-color)'} fontWeight="bold" mb={4}>Founder & Technical Lead</Text>
                         <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={4}>
-                            With over 9 years of industry experience, Werner leads Web Artisan with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
+                            With over {yearsExperience} years of industry experience, Werner leads Web Artisan with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
                         </Text>
                         <Text color={'var(--text-light-color)'} fontSize={'md'}>
                             He has architected and delivered critical software solutions for industry leaders including Distell, BAT, and Capitec. Today, he brings that same enterprise-grade discipline and technical rigor to every client partnership at Web Artisan.
                         </Text>
                 </Box>
+                
+                <Box textAlign="center" pt={10} borderTop="1px" borderColor="gray.100">
+                    <Heading size="md" mb={6} color={'var(--text-light-color)'} fontWeight="normal" letterSpacing="wide" textTransform="uppercase" fontSize="sm">
+                        Enterprise Engineering Heritage
+                    </Heading>
+                    <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} spacing={8} alignItems="center" opacity={0.6}>
+                        <Text fontWeight="bold" fontSize="lg" color="gray.500">DISTELL</Text>
+                        <Text fontWeight="bold" fontSize="lg" color="gray.500">BAT</Text>
+                        <Text fontWeight="bold" fontSize="lg" color="gray.500">CAPITEC</Text>
+                        <Text fontWeight="bold" fontSize="lg" color="gray.500">NEDBANK</Text>
+                        <Text fontWeight="bold" fontSize="lg" color="gray.500">LAUGHING COW</Text>
+                    </SimpleGrid>
+                </Box>
             </Box>
         </Box>
 
-        {/* Current Agency Clients */}
-        <Box textAlign="center">
-            <Heading size="lg" mb={8} color={'var(--main-color)'}>Current Highlights</Heading>
-            <Text color={'var(--text-light-color)'} mb={8} fontSize={'lg'} maxW="3xl" mx="auto">
-                We are currently focused on delivering digital excellence for specialized brands and high-performance industries.
-            </Text>
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6} alignItems="stretch">
+        {/* Selected Client Work */}
+        <Box textAlign="left">
+            <Stack spacing={2} textAlign="center" mb={10}>
+                <Heading size="lg" color={'var(--main-color)'}>Featured Partnerships</Heading>
+                <Text color={'var(--text-light-color)'} fontSize={'lg'} maxW="3xl" mx="auto">
+                    We partner with ambitious specialized brands to build digital excellence.
+                </Text>
+            </Stack>
+            
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} alignItems="stretch">
                 <Box 
-                    as="a" 
-                    href="https://miragearco.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    p={6} 
-                    border="1px" 
-                    borderColor="gray.100" 
-                    rounded="xl" 
-                    shadow="sm"
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
                     transition="all 0.2s"
-                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
                 >
-                    <Heading size="md" color={'var(--accent-color)'}>MIRA</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">
-                        Premium custom off-road riding gear built for performance and durability.
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                        <a href="https://sporthelicopterscapetown.co.za/" target="_blank" rel="noopener noreferrer">SPORT HELICOPTERS</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                      Developed a specialized internal booking platform to streamline their flight logistics. We maintain the infrastructure that manages their active fleet scheduling and operations.
                     </Text>
                 </Box>
+                
                 <Box 
-                    as="a" 
-                    href="https://sarahkashyap.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    p={6} 
-                    border="1px" 
-                    borderColor="gray.100" 
-                    rounded="xl" 
-                    shadow="sm"
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
                     transition="all 0.2s"
-                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
                 >
-                    <Heading size="md" color={'var(--accent-color)'}>SARAH KASHYAP</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">
-                        India&apos;s pioneering cross-country rally athlete and motorsport advocate.
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                        <a href="https://xplrsouthafrica.co.za/" target="_blank" rel="noopener noreferrer">XPLR SOUTH AFRICA</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                      Architected a content-first platform for a travel documentary series. Optimized for video delivery and user retention, serving as the central hub for a growing community of adventure riders.
                     </Text>
                 </Box>
+
                 <Box 
-                    as="a" 
-                    href="https://sporthelicopterscapetown.co.za/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    p={6} 
-                    border="1px" 
-                    borderColor="gray.100" 
-                    rounded="xl" 
-                    shadow="sm"
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
                     transition="all 0.2s"
-                    _hover={{ shadow: 'md', borderColor: 'var(--accent-color)', transform: 'translateY(-2px)' }}
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
                 >
-                    <Heading size="md" color={'var(--accent-color)'}>SPORT HELICOPTERS</Heading>
-                    <Text fontSize="sm" mt={2} color="gray.500">
-                        Cape Town&apos;s leading helicopter tour operator and aviation charter service.
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                        <a href="https://miragearco.com/" target="_blank" rel="noopener noreferrer">MIRA ACTIVEWEAR</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                      Developed a brand-centric e-commerce showcase for technical riding gear. The site emphasizes product quality through high-fidelity imagery and a custom sizing guide.
+                    </Text>
+                </Box>
+
+                <Box 
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                >
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                         <a href="https://mavericklabs.io/" target="_blank" rel="noopener noreferrer">MAVERICK LABS</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                        A strategic partner and product lab. We work alongside their team to deliver technical excellence for large-scale mobile and web initiatives.
+                    </Text>
+                </Box>
+                
+                <Box 
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                >
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                        <a href="https://sarahkashyap.com/" target="_blank" rel="noopener noreferrer">SARAH KASHYAP</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                       Built a high-impact personal brand website for India&apos;s leading female rally racer. The site serves as a professional portfolio for sponsorship acquisition and media relations.
                     </Text>
                 </Box>
             </SimpleGrid>
-        </Box>
-
-        {/* Founder's Experience */}
-        <Box textAlign="center" pt={10} borderTop="1px" borderColor="gray.100">
-            <Heading size="md" mb={6} color={'var(--text-light-color)'} fontWeight="normal" letterSpacing="wide" textTransform="uppercase" fontSize="sm">
-                Founder&apos;s Engineering Background
-            </Heading>
-            <Text color={'var(--text-light-color)'} mb={8} fontSize={'md'} maxW="2xl" mx="auto">
-                Prior to Web Artisan, our leadership delivered critical software for these industry giants:
-            </Text>
-            <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} spacing={8} alignItems="center" opacity={0.6}>
-                <Text fontWeight="bold" fontSize="lg" color="gray.500">DISTELL</Text>
-                <Text fontWeight="bold" fontSize="lg" color="gray.500">BAT</Text>
-                <Text fontWeight="bold" fontSize="lg" color="gray.500">CAPITEC</Text>
-                <Text fontWeight="bold" fontSize="lg" color="gray.500">NEDBANK</Text>
-                <Text fontWeight="bold" fontSize="lg" color="gray.500">LAUGHING COW</Text>
-            </SimpleGrid>
-        </Box>
-
-        {/* Featured Projects Section */}
-        <Box bg={useColorModeValue('gray.50', 'gray.700')} p={8} rounded={'lg'} shadow={'lg'}>
-          <Heading size="md" color={'var(--accent-color)'} mb={6}>Select Project Experience</Heading>
-          <Text fontSize="sm" color="gray.500" mb={6}>* Includes work delivered by leadership in previous roles.</Text>
-          <Stack spacing={6}>
-            <Box>
-                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Laughing Cow Campaign</Text>
-                <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                  Created a React-based engagement platform for a children&apos;s competition. The interactive site allowed users to select characters and enter draws, focusing on high engagement and simple, fun UI.
-                </Text>
-            </Box>
-
-            <Box>
-                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Nedbank MoneyEdge</Text>
-                <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                  Developed a Next.js platform integrating with Strapi and Microsoft Community Learning to offer financial literacy courses.
-                </Text>
-            </Box>
-
-            <Box>
-                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>Klick & Pay (BAT)</Text>
-                 <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                  Built a cross-platform mobile application for product management and user interactions using Xamarin.
-                </Text>
-            </Box>
-
-             <Box>
-                <Text fontWeight="bold" fontSize="lg" color={'var(--main-color)'}>DEX (Distell)</Text>
-                <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                   Facilitated event management and user engagement through a custom mobile application.
-                </Text>
-            </Box>
-          </Stack>
         </Box>
         
         <Box mt={10}>
