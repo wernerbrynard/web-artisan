@@ -21,7 +21,7 @@ export default function AboutUs() {
             About Web Artisan
           </Heading>
           <Text color={'var(--text-light-color)'} fontSize={'lg'} maxW="3xl">
-            Web Artisan Studios, based in Cape Town, is a digital agency dedicated to crafting exceptional web experiences. We combine creative design with robust engineering to deliver custom solutions that drive business growth. From local partners to international enterprises, we help brands establish a commanding digital presence.
+            Web Artisan Studios is a digital product agency dedicated to crafting exceptional software. We combine creative design with robust engineering to deliver specialized solutions that drive business growth. From local motorsport brands to international enterprises, we help clients establish a commanding digital presence.
           </Text>
           <Text color={'var(--text-light-color)'} fontSize={'lg'} maxW="3xl">
             Founded on the principles of craftsmanship and technical excellence, Web Artisan Studios (PTY) LTD partners with clients to navigate the complex digital landscape. Our team leverages cutting-edge technologies like React, Next.js, and Cloud Infrastructure to build scalable, high-performance applications.

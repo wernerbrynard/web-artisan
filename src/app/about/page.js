@@ -1,7 +1,7 @@
 // src/app/about/page.js
 "use client";
 
-import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue, Image } from '@chakra-ui/react';
+import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import ContactForm from '../../components/ContactForm';
 
 const calculateYears = () => {
@@ -138,7 +138,7 @@ export default function About() {
                     _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
                 >
                     <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                        <a href="https://miragearco.com/" target="_blank" rel="noopener noreferrer">MIRA ACTIVEWEAR</a>
+                        <a href="https://miragearco.com/" target="_blank" rel="noopener noreferrer">MIRA GEAR</a>
                     </Heading>
                     <Text color={'var(--text-light-color)'} fontSize={'md'}>
                       Developed a brand-centric e-commerce showcase for technical riding gear. The site emphasizes product quality through high-fidelity imagery and a custom sizing guide.
@@ -178,6 +178,24 @@ export default function About() {
                     </Heading>
                     <Text color={'var(--text-light-color)'} fontSize={'md'}>
                        Built a high-impact personal brand website for India&apos;s leading female rally racer. The site serves as a professional portfolio for sponsorship acquisition and media relations.
+                    </Text>
+                </Box>
+
+                <Box 
+                    bg={useColorModeValue('gray.50', 'gray.700')} 
+                    p={8} 
+                    rounded={'xl'} 
+                    shadow={'md'}
+                    border="1px"
+                    borderColor="transparent"
+                    transition="all 0.2s"
+                    _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                >
+                    <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                        <a href="https://rideout.co.za/" target="_blank" rel="noopener noreferrer">RIDEOUT</a>
+                    </Heading>
+                    <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                       Our proprietary ride planning platform. Designed to solve group logistics, it allows riders to create routes, manage public or private events, and coordinate seamlessly.
                     </Text>
                 </Box>
             </SimpleGrid>

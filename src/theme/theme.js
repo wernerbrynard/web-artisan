@@ -2,6 +2,10 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
+    fonts: {
+        heading: 'var(--font-space-grotesk), sans-serif',
+        body: 'var(--font-inter), sans-serif',
+    },
     colors: {
         main: '#103948', // Main Color
         accent: '#2F855A', // Accent Color (Green)

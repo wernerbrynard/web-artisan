@@ -22,12 +22,26 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
   const { colorMode } = useColorMode();
   const theme = useTheme();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+  const pathname = usePathname();
+
+  const handleNavClick = (e, path) => {
+    const normalize = (p) => (p || '').replace(/\/$/, '') || '/';
+    if (normalize(pathname) === normalize(path)) {
+      e.preventDefault();
+      // Delay scrolling slightly to handle mobile drawer closing (unlocking body scroll)
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+    onClose();
+  };
 
   const handleScrollToContact = (e) => {
     e.preventDefault();
@@ -48,7 +62,7 @@ export default function NavBar() {
       zIndex={1000}
     >
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <ChakraLink as={NextLink} href="/" _hover={{ textDecoration: 'none' }}>
+        <ChakraLink as={NextLink} href="/" _hover={{ textDecoration: 'none' }} onClick={(e) => handleNavClick(e, '/')}>
           <Flex alignItems={'center'}>
             <Image
               src="/images/logo.jpeg"
@@ -61,7 +75,7 @@ export default function NavBar() {
           </Flex>
         </ChakraLink>
         <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }} ml="auto">
-          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)">
+          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)" onClick={(e) => handleNavClick(e, '/about')}>
             About
           </ChakraLink>
           <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)">
@@ -93,10 +107,10 @@ export default function NavBar() {
             </DrawerHeader>
             <DrawerBody>
               <Stack spacing={4}>
-                <ChakraLink as={NextLink} href="/" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
+                <ChakraLink as={NextLink} href="/" onClick={(e) => handleNavClick(e, '/')} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   Home
                 </ChakraLink>
-                <ChakraLink as={NextLink} href="/about" onClick={onClose} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
+                <ChakraLink as={NextLink} href="/about" onClick={(e) => handleNavClick(e, '/about')} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
                   About
                 </ChakraLink>
                 <ChakraLink href="#contact-form" onClick={handleScrollToContact} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>

@@ -26,18 +26,20 @@ export default function CallToActionWithAnnotation() {
           lineHeight={'110%'}
           color={'var(--main-color)'}
         >
-          Empower Your Business with a Professional Website
+          Digital Craftsmanship for
           <br />
           <Text as={'span'} color={'var(--accent-color)'}>
-            Unlock Your Potential
+            High-Performance Brands
           </Text>
         </Heading>
         <Text
           color={'var(--text-light-color)'}
           fontSize={'lg'}
+          maxW={'3xl'}
+          mx={'auto'}
           textAlign={useBreakpointValue({ base: 'left', md: 'center' })}
         >
-          At Web Artisan, based in Cape Town, we specialise in creating custom web solutions that meet your unique needs. From dynamic websites to complex web applications, our focus is on delivering effective and user-friendly digital experiences. Connect with us to see how we can help transform your digital strategy and achieve your online goals.
+          We don&apos;t use templates. We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
         </Text>
         <Stack
           direction={'column'}
