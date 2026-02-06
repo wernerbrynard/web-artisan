@@ -1,11 +1,11 @@
 import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Exo_2 } from 'next/font/google';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk' });
+const exo2 = Exo_2({ subsets: ['latin'], variable: '--font-exo-2' });
 
 export const viewport = {
   width: 'device-width',
@@ -44,7 +44,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${exo2.variable}`}>
       <body style={{ backgroundColor: "var(--background-color)" }}>
         <Providers>
           <NavBar />

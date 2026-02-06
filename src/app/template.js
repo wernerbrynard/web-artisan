@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 export default function Template({ children }) {
   return (
     <motion.div
-      initial={{ y: 20, opacity: 0, scale: 0.99, filter: 'blur(5px)' }}
-      animate={{ y: 0, opacity: 1, scale: 1, filter: 'blur(0px)' }}
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ 
         type: "spring", 
-        stiffness: 200, 
-        damping: 20,
-        mass: 1 
+        stiffness: 400, 
+        damping: 25,
+        mass: 0.5
       }}
     >
       {children}
