@@ -10,19 +10,18 @@ import {
   useTheme,
   Heading,
   IconButton,
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  DrawerHeader,
-  DrawerBody,
   Stack,
   Link as ChakraLink,
   useDisclosure,
+  Text,
 } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const MotionBox = motion(Box);
+const MotionLink = motion(ChakraLink);
 
 export default function NavBar() {
   const { colorMode } = useColorMode();
@@ -52,6 +51,60 @@ export default function NavBar() {
     onClose(); // Close the drawer after navigating
   };
 
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      clipPath: "circle(0% at calc(100% - 40px) 40px)",
+      transition: {
+        delay: 0.1,
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    },
+    open: {
+      opacity: 1,
+      clipPath: "circle(150% at calc(100% - 40px) 40px)",
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2
+      }
+    }
+  };
+
+  const listVariants = {
+    closed: {
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    open: {
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 }
+      }
+    },
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 }
+      }
+    }
+  };
+
   return (
     <Box
       bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.800'}
@@ -68,6 +121,7 @@ export default function NavBar() {
               src="/images/logo.jpeg"
               alt="Logo"
               boxSize="50px"
+              style={{ borderRadius: '4px' }}
             />
             <Heading as="span" ml={4} fontSize="lg" color="var(--main-color)">
               Web Artisan
@@ -75,52 +129,94 @@ export default function NavBar() {
           </Flex>
         </ChakraLink>
         <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }} ml="auto">
-          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)" onClick={(e) => handleNavClick(e, '/about')}>
+          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)" onClick={(e) => handleNavClick(e, '/about')} _hover={{ color: 'var(--accent-color)' }}>
             About
           </ChakraLink>
-          <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)">
+          <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)" _hover={{ color: 'var(--accent-color)' }}>
             Contact
           </ChakraLink>
         </Flex>
-        {/* Mobile Hamburger Menu */}
+        
+        {/* Mobile Hamburger Menu Button */}
         <IconButton
           ref={btnRef}
-          icon={<HamburgerIcon />}
-          variant="outline"
-          onClick={onOpen}
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          variant="ghost"
+          onClick={isOpen ? onClose : onOpen}
           display={{ base: 'flex', md: 'none' }}
           color="var(--main-color)"
-          borderColor="var(--main-color)"
-          _hover={{ bg: 'var(--accent-color)', color: 'white' }}
+          _hover={{ bg: 'transparent', color: 'var(--accent-color)' }}
+          zIndex={2001} // Ensure button is above the overlay
         />
-        <Drawer
-          isOpen={isOpen}
-          placement="right"
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.700'}>
-            <DrawerCloseButton color={colorMode === 'light' ? 'var(--main-color)' : 'white'} />
-            <DrawerHeader borderBottomWidth="1px" borderColor={colorMode === 'light' ? 'gray.200' : 'gray.600'}>
-              Web Artisan
-            </DrawerHeader>
-            <DrawerBody>
-              <Stack spacing={4}>
-                <ChakraLink as={NextLink} href="/" onClick={(e) => handleNavClick(e, '/')} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
-                  Home
-                </ChakraLink>
-                <ChakraLink as={NextLink} href="/about" onClick={(e) => handleNavClick(e, '/about')} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
-                  About
-                </ChakraLink>
-                <ChakraLink href="#contact-form" onClick={handleScrollToContact} color="var(--text-color)" _hover={{ color: 'var(--accent-color)' }}>
-                  Contact
-                </ChakraLink>
-                {/* Add more links as needed */}
+
+        {/* Full Screen Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isOpen && (
+            <MotionBox
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              position="fixed"
+              top={0}
+              left={0}
+              width="100vw"
+              height="100vh"
+              bg="var(--background-color)"
+              zIndex={2000}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Stack 
+                as={motion.div} 
+                variants={listVariants} 
+                spacing={8} 
+                textAlign="center"
+              >
+                <MotionBox variants={itemVariants}>
+                  <ChakraLink 
+                    as={NextLink} 
+                    href="/" 
+                    onClick={(e) => handleNavClick(e, '/')} 
+                    fontSize="4xl" 
+                    fontWeight="bold"
+                    color="var(--main-color)" 
+                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
+                  >
+                    Home
+                  </ChakraLink>
+                </MotionBox>
+                <MotionBox variants={itemVariants}>
+                  <ChakraLink 
+                    as={NextLink} 
+                    href="/about" 
+                    onClick={(e) => handleNavClick(e, '/about')} 
+                    fontSize="4xl" 
+                    fontWeight="bold"
+                    color="var(--main-color)" 
+                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
+                  >
+                    About
+                  </ChakraLink>
+                </MotionBox>
+                <MotionBox variants={itemVariants}>
+                  <ChakraLink 
+                    href="#contact-form" 
+                    onClick={handleScrollToContact} 
+                    fontSize="4xl" 
+                    fontWeight="bold"
+                    color="var(--main-color)" 
+                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
+                  >
+                    Contact
+                  </ChakraLink>
+                </MotionBox>
               </Stack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
+            </MotionBox>
+          )}
+        </AnimatePresence>
       </Flex>
     </Box>
   );
