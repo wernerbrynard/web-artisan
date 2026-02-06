@@ -2,6 +2,7 @@ import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Inter, Exo_2 } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.scss";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </Providers>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
       </body>
     </html>
   );

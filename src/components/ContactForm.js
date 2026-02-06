@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useState } from 'react'
 
-export default function ContactForm() {
+export default function ContactForm(props) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -23,6 +23,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
     setIsSubmitting(true)
     try {
       const response = await fetch('/api/contact', {
@@ -60,7 +61,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Container id='contact-form' maxW={'5xl'} py={12}>
+    <Container id='contact-form' maxW={'5xl'} py={12} {...props}>
       <Heading color={'var(--main-color)'} mb={6} textAlign={'center'}>
         Contact Us
       </Heading>

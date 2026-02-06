@@ -22,24 +22,20 @@ export default function CallToActionWithAnnotation() {
       >
         <Heading
           fontWeight={600}
-          fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+          fontSize={{ base: '4xl', sm: '5xl', md: '6xl' }}
           lineHeight={'110%'}
           color={'var(--main-color)'}
         >
-          Digital Craftsmanship for
-          <br />
-          <Text as={'span'} color={'var(--accent-color)'}>
-            High-Performance Brands
-          </Text>
+          Digital Craftsmanship
         </Heading>
         <Text
           color={'var(--text-light-color)'}
           fontSize={'lg'}
-          maxW={'3xl'}
+          maxW={'4xl'}
           mx={'auto'}
           textAlign={useBreakpointValue({ base: 'left', md: 'center' })}
         >
-          We don&apos;t use templates. We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
+          We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
         </Text>
         <Stack
           direction={'column'}
