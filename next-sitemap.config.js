@@ -1,6 +1,6 @@
 module.exports = {
     siteUrl: 'https://webartisan.co.za',
-    generateRobotsTxt: true,
+    generateRobotsTxt: false,
     changefreq: 'weekly',
     priority: 0.7,
     generateIndexSitemap: false, 
