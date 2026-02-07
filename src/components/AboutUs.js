@@ -31,8 +31,9 @@ export default function AboutUs() {
             With leadership grounded in years of industry experience, we bring a level of professionalism and insight that ensures every project is delivered to the highest standard.
           </Text>
           <Stack spacing={6} align={'center'}>
-            <Link href="/about" passHref>
-              <Button
+            <Button
+                as={Link}
+                href="/about"
                 bg={'var(--accent-color)'}
                 color={'white'}
                 rounded={'full'}
@@ -43,7 +44,6 @@ export default function AboutUs() {
               >
                 Learn More
               </Button>
-            </Link>
           </Stack>
         </Stack>
     </Container>

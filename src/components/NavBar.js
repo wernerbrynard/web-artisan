@@ -141,6 +141,7 @@ export default function NavBar() {
         <IconButton
           ref={btnRef}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          aria-label="Open Menu"
           variant="ghost"
           onClick={isOpen ? onClose : onOpen}
           display={{ base: 'flex', md: 'none' }}
