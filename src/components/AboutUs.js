@@ -42,7 +42,7 @@ export default function AboutUs() {
                   bg: 'var(--button-hover-color)',
                 }}
               >
-                Learn More
+                More About Us
               </Button>
           </Stack>
         </Stack>
