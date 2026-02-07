@@ -5,9 +5,10 @@ import {
   Heading,
   Text,
   Stack,
+  Button,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import ScrollToContactButton from './ScrollToContactButton';
+import Link from 'next/link';
 
 export default function AboutUs() {
   return (
@@ -30,7 +31,19 @@ export default function AboutUs() {
             With leadership grounded in years of industry experience, we bring a level of professionalism and insight that ensures every project is delivered to the highest standard.
           </Text>
           <Stack spacing={6} align={'center'}>
-            <ScrollToContactButton />
+            <Link href="/about" passHref>
+              <Button
+                bg={'var(--accent-color)'}
+                color={'white'}
+                rounded={'full'}
+                px={6}
+                _hover={{
+                  bg: 'var(--button-hover-color)',
+                }}
+              >
+                Learn More
+              </Button>
+            </Link>
           </Stack>
         </Stack>
     </Container>
