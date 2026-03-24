@@ -119,14 +119,13 @@ export default function ContactForm(props) {
               rounded={'full'}
               px={6}
               isLoading={isSubmitting}
-              isDisabled={true}
               _hover={{
                 bg: 'var(--button-hover-color)',
               }}
               w="full"
               maxW="200px"
             >
-              Coming Soon
+              Send Message
             </Button>
             <Text color={'var(--text-light-color)'} fontSize={'sm'} mt={4}>
               Web Artisan Studios (PTY) LTD | Registration No: 2025/012325/07
