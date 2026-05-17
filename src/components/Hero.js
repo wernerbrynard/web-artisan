@@ -8,7 +8,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import GradientBanner from './GradientBanner';
-import ScrollToContactButton from './ScrollToContactButton';
+import ScrollToButton from './ScrollToButton';
 
 export default function CallToActionWithAnnotation() {
   return (
@@ -36,12 +36,40 @@ export default function CallToActionWithAnnotation() {
           We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
         </Text>
         <Stack
-          direction={'column'}
+          direction={{ base: 'column', sm: 'row' }}
           spacing={6}
           align={'center'}
+          justify={'center'}
           position={'relative'}
         >
-          <ScrollToContactButton />
+          <ScrollToButton
+            targetId={'contact-form'}
+            bg={'var(--accent-color)'}
+            color={'white'}
+            rounded={'full'}
+            size={'lg'}
+            px={8}
+            _hover={{
+              bg: 'var(--button-hover-color)',
+              color: 'white',
+            }}
+          >
+            Get Started
+          </ScrollToButton>
+          <ScrollToButton
+            targetId={'about'}
+            variant={'outline'}
+            color={'white'}
+            borderColor={'whiteAlpha.800'}
+            rounded={'full'}
+            size={'lg'}
+            px={8}
+            _hover={{
+              bg: 'whiteAlpha.200',
+            }}
+          >
+            Learn More
+          </ScrollToButton>
         </Stack>
       </Stack>
     </GradientBanner>

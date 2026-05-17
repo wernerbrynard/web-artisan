@@ -202,7 +202,26 @@ export default function About() {
                         </Text>
                     </Box>
 
-                    <Box 
+                    <Box
+                        bg={useColorModeValue('gray.50', 'gray.700')}
+                        p={8}
+                        rounded={'xl'}
+                        shadow={'md'}
+                        border="1px"
+                        borderColor="transparent"
+                        transition="all 0.2s"
+                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                        textAlign={{ base: 'left', md: 'center' }}
+                    >
+                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                            <a href="https://www.lawnandladder.co.za/" target="_blank" rel="noopener noreferrer">LAWN &amp; LADDER</a>
+                        </Heading>
+                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                        Designed and built a lead-focused website for a Pretoria property maintenance service. The site showcases their range of one-off services and converts visitors through a streamlined quote request flow.
+                        </Text>
+                    </Box>
+
+                    <Box
                         bg={useColorModeValue('gray.50', 'gray.700')} 
                         p={8} 
                         rounded={'xl'} 

@@ -11,7 +11,7 @@
   --text-light-color: #718096; /* Muted Blue-Grey for secondary text */
   --highlight-color: #F6AD55; /* Warm muted orange for highlights */
   --button-color: #2F855A; /* Button background color */
-  --button-hover-color: #2C7A7B; /* Button hover color */
+  --button-hover-color: #276749; /* Darker green for button hover */
   --section-tint: #F1F6F8; /* Soft cool grey for alternating sections */
 }
 
@@ -40,6 +40,31 @@ a {
 
 a:hover {
   color: var(--highlight-color);
+}
+
+/* Show the hand cursor on all clickable elements */
+button,
+a,
+[role="button"],
+[role="link"],
+[role="tab"],
+[role="menuitem"],
+label[for],
+summary,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="checkbox"],
+input[type="radio"],
+select {
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled],
+input:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
 }
 
 /* Add more styles as needed */

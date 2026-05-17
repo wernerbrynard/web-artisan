@@ -9,10 +9,11 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import ScrollToButton from './ScrollToButton';
 
 export default function AboutUs() {
   return (
-    <Container maxW={'5xl'} py={12}>
+    <Container id={'about'} maxW={'5xl'} py={12} scrollMarginTop={20}>
         <Stack spacing={4} textAlign="center" alignItems="center">
           <Heading
             color={'var(--main-color)'}
@@ -30,7 +31,7 @@ export default function AboutUs() {
           <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={6} maxW="4xl">
             With leadership grounded in years of industry experience, we bring a level of professionalism and insight that ensures every project is delivered to the highest standard.
           </Text>
-          <Stack spacing={6} align={'center'}>
+          <Stack direction={{ base: 'column', sm: 'row' }} spacing={6} align={'center'}>
             <Button
                 as={Link}
                 href="/about"
@@ -40,10 +41,25 @@ export default function AboutUs() {
                 px={6}
                 _hover={{
                   bg: 'var(--button-hover-color)',
+                  color: 'white',
                 }}
               >
                 More About Us
               </Button>
+            <ScrollToButton
+                targetId={'contact-form'}
+                variant={'outline'}
+                color={'var(--accent-color)'}
+                borderColor={'var(--accent-color)'}
+                rounded={'full'}
+                px={6}
+                _hover={{
+                  bg: 'var(--accent-color)',
+                  color: 'white',
+                }}
+              >
+                Get in Touch
+              </ScrollToButton>
           </Stack>
         </Stack>
     </Container>
