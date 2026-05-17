@@ -1,6 +1,6 @@
-# Web Artisan
+# Web Artisan Studios
 
-Welcome to Web Artisan! This project is focused on providing professional web development services, including custom site development, e-commerce solutions, and more.
+Welcome to Web Artisan Studios! This project is focused on providing professional web development services, including custom site development, e-commerce solutions, and more.
 
 ## Features
 

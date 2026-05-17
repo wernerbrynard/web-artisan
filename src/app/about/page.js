@@ -27,7 +27,7 @@ export default function About() {
                     as="h1" 
                     fontSize={{ base: '3xl', md: '5xl' }}
                 >
-                    About Web Artisan
+                    About Web Artisan Studios
                 </Heading>
                 <Text 
                     color={'var(--text-light-color)'} 
@@ -69,10 +69,10 @@ export default function About() {
                         <Heading size="lg" mb={2}>Werner Brynard</Heading>
                         <Text color={'var(--accent-color)'} fontWeight="bold" mb={4}>Founder & Technical Lead</Text>
                         <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={4}>
-                            With over {yearsExperience} years of industry experience, Werner leads Web Artisan with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
+                            With over {yearsExperience} years of industry experience, Werner leads Web Artisan Studios with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
                         </Text>
                         <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                            He has architected and delivered critical software solutions for industry leaders including Distell, BAT, and Capitec. Today, he brings that same enterprise-grade discipline and technical rigor to every client partnership at Web Artisan.
+                            He has architected and delivered critical software solutions for industry leaders including Distell, BAT, and Capitec. Today, he brings that same enterprise-grade discipline and technical rigor to every client partnership at Web Artisan Studios.
                         </Text>
                 </Box>
                 

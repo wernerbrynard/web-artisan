@@ -15,16 +15,16 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "Web Artisan | Tailored Web Solutions in Cape Town",
-  description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
+  title: "Web Artisan Studios | Tailored Web Solutions in Cape Town",
+  description: "Web Artisan Studios specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
   alternates: {
     canonical: 'https://webartisan.co.za/',
   },
   openGraph: {
-    title: "Web Artisan | Tailored Web Solutions in Cape Town",
-    description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
+    title: "Web Artisan Studios | Tailored Web Solutions in Cape Town",
+    description: "Web Artisan Studios specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
     url: 'https://webartisan.co.za/',
-    siteName: 'Web Artisan',
+    siteName: 'Web Artisan Studios',
     images: [
       {
         url: 'https://webartisan.co.za/images/logo.jpeg',
@@ -34,8 +34,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Web Artisan | Tailored Web Solutions in Cape Town",
-    description: "Web Artisan specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
+    title: "Web Artisan Studios | Tailored Web Solutions in Cape Town",
+    description: "Web Artisan Studios specialises in creating tailored web solutions for local and global businesses. Based in Cape Town, we deliver effective and user-friendly digital experiences.",
     images: ['https://webartisan.co.za/images/logo.jpeg'],
   },
   icons: {

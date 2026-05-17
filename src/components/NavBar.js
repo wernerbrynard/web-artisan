@@ -124,7 +124,7 @@ export default function NavBar() {
               style={{ borderRadius: '4px' }}
             />
             <Heading as="span" ml={4} fontSize="lg" color="var(--main-color)">
-              Web Artisan
+              Web Artisan Studios
             </Heading>
           </Flex>
         </ChakraLink>
