@@ -3,37 +3,35 @@
 
 import {
   Box,
-  Container,
   Heading,
   Text,
   Stack,
-  useBreakpointValue,
 } from '@chakra-ui/react'
+import GradientBanner from './GradientBanner';
 import ScrollToContactButton from './ScrollToContactButton';
 
 export default function CallToActionWithAnnotation() {
   return (
-    <Container maxW={'6xl'}>
+    <GradientBanner>
       <Stack
         as={Box}
-        spacing={{ base: 8, md: 14 }}
-        py={{ base: 20, md: 36 }}
-        textAlign="center" // Ensure the title is always center-aligned
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 24, md: 40 }}
+        textAlign="center"
       >
         <Heading
-          fontWeight={600}
+          fontWeight={700}
           fontSize={{ base: '4xl', sm: '5xl', md: '6xl' }}
           lineHeight={'110%'}
-          color={'var(--main-color)'}
+          color={'white'}
         >
           Digital Craftsmanship
         </Heading>
         <Text
-          color={'var(--text-light-color)'}
-          fontSize={'lg'}
-          maxW={'4xl'}
+          color={'whiteAlpha.800'}
+          fontSize={{ base: 'md', md: 'xl' }}
+          maxW={'3xl'}
           mx={'auto'}
-          textAlign={useBreakpointValue({ base: 'left', md: 'center' })}
         >
           We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
         </Text>
@@ -46,6 +44,6 @@ export default function CallToActionWithAnnotation() {
           <ScrollToContactButton />
         </Stack>
       </Stack>
-    </Container>
+    </GradientBanner>
   )
 }

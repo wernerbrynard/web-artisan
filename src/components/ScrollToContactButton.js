@@ -14,7 +14,8 @@ export default function ScrollToContactButton() {
       colorScheme={'accent-color'}
       bg={'var(--accent-color)'}
       rounded={'full'}
-      px={6}
+      size={'lg'}
+      px={8}
       _hover={{
         bg: 'var(--button-hover-color)',
       }}

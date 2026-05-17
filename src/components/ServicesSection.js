@@ -47,6 +47,7 @@ const Feature = ({ title, text, icon }) => {
 
 export default function ServicesSection() {
   return (
+    <Box bg={'var(--section-tint)'}>
     <Container maxW={'6xl'} py={16}>
       <Stack spacing={4} as={Container} maxW={'4xl'} textAlign={'center'} mb={12}>
         <Heading color={'var(--main-color)'} fontSize={{ base: '3xl', md: '4xl' }}>
@@ -88,5 +89,6 @@ export default function ServicesSection() {
         />
       </SimpleGrid>
     </Container>
+    </Box>
   );
 }

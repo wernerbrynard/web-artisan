@@ -2,6 +2,7 @@
 
 import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 import ContactForm from '../../components/ContactForm';
+import GradientBanner from '../../components/GradientBanner';
 
 const calculateYears = () => {
     const startDate = new Date('2015-03-01');
@@ -18,27 +19,33 @@ export default function About() {
   const yearsExperience = calculateYears();
 
   return (
+    <>
+    <GradientBanner>
+        <Stack
+            spacing={6}
+            py={{ base: 20, md: 28 }}
+            textAlign="center"
+        >
+            <Heading
+                color={'white'}
+                as="h1"
+                fontSize={{ base: '3xl', md: '5xl' }}
+            >
+                About Web Artisan Studios
+            </Heading>
+            <Text
+                color={'whiteAlpha.800'}
+                fontSize={'xl'}
+                maxW="3xl"
+                mx="auto"
+            >
+                We are a digital product agency based in Cape Town, built on the belief that great code and great design must work in harmony.
+            </Text>
+        </Stack>
+    </GradientBanner>
+
     <Container maxW={'6xl'} py={12}>
         <Stack spacing={12}>
-            {/* Company Section */}
-            <Stack spacing={6} textAlign={{ base: 'left', md: 'center' }}>
-                <Heading 
-                    color={'var(--main-color)'} 
-                    as="h1" 
-                    fontSize={{ base: '3xl', md: '5xl' }}
-                >
-                    About Web Artisan Studios
-                </Heading>
-                <Text 
-                    color={'var(--text-light-color)'} 
-                    fontSize={'xl'} 
-                    maxW="4xl" 
-                    mx={{ base: 0, md: 'auto' }}
-                >
-                    We are a digital product agency based in Cape Town, built on the belief that great code and great design must work in harmony.
-                </Text>
-            </Stack>
-
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
                 <Box textAlign={{ base: 'left', md: 'center' }}>
                     <Heading size="lg" mb={4} color={'var(--main-color)'}>Our Mission</Heading>
@@ -221,5 +228,6 @@ export default function About() {
             </Box>
         </Stack>
     </Container>
+    </>
   );
 }
