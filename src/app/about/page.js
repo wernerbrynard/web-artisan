@@ -239,6 +239,25 @@ export default function About() {
                         Our proprietary ride planning platform. Designed to solve group logistics, it allows riders to create routes, manage public or private events, and coordinate seamlessly.
                         </Text>
                     </Box>
+
+                    <Box
+                        bg={useColorModeValue('gray.50', 'gray.700')}
+                        p={8}
+                        rounded={'xl'}
+                        shadow={'md'}
+                        border="1px"
+                        borderColor="transparent"
+                        transition="all 0.2s"
+                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                        textAlign={{ base: 'left', md: 'center' }}
+                    >
+                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                            <a href="https://www.mynhardt.co.za/" target="_blank" rel="noopener noreferrer">MYNHARDT</a>
+                        </Heading>
+                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                        Crafted an elegant brand experience for chef Mynhardt Joubert&apos;s events venue at the historic KWV Cathedral Cellar. The site captures his culinary heritage and guides guests from weddings to corporate functions.
+                        </Text>
+                    </Box>
                 </SimpleGrid>
             </Box>
             
