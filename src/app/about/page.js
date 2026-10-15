@@ -236,7 +236,7 @@ export default function About() {
                             <a href="https://rideout.co.za/" target="_blank" rel="noopener noreferrer">RIDEOUT</a>
                         </Heading>
                         <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Our proprietary ride planning platform. Designed to solve group logistics, it allows riders to create routes, manage public or private events, and coordinate seamlessly.
+                        Our own app for adventure motorcyclists, on iOS, Android and the web. It records the whole ride and tells you what it actually was, with a web route builder that colours the map by surface and plans group rides around it.
                         </Text>
                     </Box>
 
