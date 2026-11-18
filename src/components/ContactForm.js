@@ -7,6 +7,7 @@ import {
   FormControl,
   FormLabel,
   Input,
+  Link as ChakraLink,
   SimpleGrid,
   Stack,
   Text,
@@ -14,6 +15,7 @@ import {
   useToast,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import NextLink from 'next/link'
 import { Arrow, Band, SectionHeader } from './ui'
 
 const fieldStyles = {
@@ -98,6 +100,13 @@ export default function ContactForm() {
                 Send message
                 <Arrow />
               </Button>
+              <Text color="steel" fontSize="sm" mt={3}>
+                We use your details only to reply to you. See our{' '}
+                <ChakraLink as={NextLink} href="/privacy" color="ink" textDecoration="underline" textUnderlineOffset="3px">
+                  privacy and cookies page
+                </ChakraLink>
+                .
+              </Text>
             </Box>
           </Stack>
         </Box>

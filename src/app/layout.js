@@ -2,7 +2,7 @@ import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Archivo, Instrument_Sans, IBM_Plex_Mono } from 'next/font/google';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Consent from "@/components/Consent";
 import { studio } from "@/data/work";
 import { pageMetadata, siteUrl } from "@/data/seo";
 import "./globals.scss";
@@ -50,9 +50,10 @@ export default function RootLayout({ children }) {
           <NavBar />
           {children}
           <Footer />
+          {/* Cookie banner. Google Analytics only loads once a visitor accepts. */}
+          <Consent gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
         </Providers>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organisation) }} />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID} />
       </body>
     </html>
   );
