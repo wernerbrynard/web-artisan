@@ -258,6 +258,25 @@ export default function About() {
                         Crafted an elegant brand experience for chef Mynhardt Joubert&apos;s events venue at the historic KWV Cathedral Cellar. The site captures his culinary heritage and guides guests from weddings to corporate functions.
                         </Text>
                     </Box>
+
+                    <Box
+                        bg={useColorModeValue('gray.50', 'gray.700')}
+                        p={8}
+                        rounded={'xl'}
+                        shadow={'md'}
+                        border="1px"
+                        borderColor="transparent"
+                        transition="all 0.2s"
+                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
+                        textAlign={{ base: 'left', md: 'center' }}
+                    >
+                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
+                            <a href="https://onelifetours.co.za/" target="_blank" rel="noopener noreferrer">ONE LIFE TOURS</a>
+                        </Heading>
+                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
+                        Designed and built the website for a luxury 15-day guided motorcycle tour through the Western Cape. The site takes international riders through the route day by day, from pricing and the crew to an enquiry form that goes straight to the team.
+                        </Text>
+                    </Box>
                 </SimpleGrid>
             </Box>
             
