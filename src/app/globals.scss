@@ -1,45 +1,55 @@
 /* globals.scss */
 
-/* Define color palette */
-:root {
-  --main-color: #103948; /* Dark Navy Blue */
-  --main-color-light: #2a4b6e; /* Light shade of main color */
-  --main-color-dark: #0a2b3b; /* Dark shade of main color */
-  --accent-color: #2F855A; /* Muted Green */
-  --background-color: #FFFFFF; /* White Background */
-  --text-color: #2D3748; /* Dark Charcoal for primary text */
-  --text-light-color: #718096; /* Muted Blue-Grey for secondary text */
-  --highlight-color: #F6AD55; /* Warm muted orange for highlights */
-  --button-color: #2F855A; /* Button background color */
-  --button-hover-color: #276749; /* Darker green for button hover */
-  --section-tint: #F1F6F8; /* Soft cool grey for alternating sections */
+/* Brand colours are defined once, in src/theme/theme.js. Chakra exposes them
+   here as --chakra-colors-<name>. (src/app/icon.svg is a static file, so it
+   carries its own copies of ink, stone and brass.) */
+
+html {
+  scroll-behavior: smooth;
 }
 
-/* Apply color palette */
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--chakra-colors-stone);
+  color: var(--chakra-colors-ink);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--main-color);
+/* Anchored sections stop below the sticky header */
+[id] {
+  scroll-margin-top: 88px;
 }
 
-button {
-  background-color: var(--button-color);
-  color: #ffffff; /* Button text color */
+::selection {
+  background: var(--chakra-colors-ink);
+  color: var(--chakra-colors-stone);
 }
 
-button:hover {
-  background-color: var(--button-hover-color);
+:focus-visible {
+  outline: 2px solid var(--chakra-colors-ink);
+  outline-offset: 3px;
 }
 
-a {
-  color: var(--accent-color);
+/* Page transition, replayed on each navigation by src/app/template.js */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 }
 
-a:hover {
-  color: var(--highlight-color);
+.page-enter {
+  animation: page-enter 0.22s ease-out;
+}
+
+/* Slow turn for the ring text of a large stamp (see Stamp in Logo.js) */
+@keyframes stamp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stamp-spin {
+  transform-origin: 60px 60px;
+  animation: stamp-spin 80s linear infinite;
 }
 
 /* Show the hand cursor on all clickable elements */
@@ -67,4 +77,19 @@ input:disabled,
   cursor: not-allowed;
 }
 
-/* Add more styles as needed */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .stamp-spin {
+    animation: none;
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <style>
+    .disc { fill: #0f222b; }
+    @media (prefers-color-scheme: dark) { .disc { fill: #edf0f0; } }
+  </style>
+  <defs>
+    <clipPath id="c"><circle cx="60" cy="60" r="58"/></clipPath>
+    <mask id="m">
+      <circle cx="60" cy="60" r="58" fill="#fff"/>
+      <g transform="rotate(-14 60 60)">
+        <rect x="-10" y="31" width="140" height="10" fill="#000"/>
+        <rect x="-10" y="55" width="140" height="10" fill="#000"/>
+        <rect x="-10" y="79" width="140" height="10" fill="#000"/>
+        <ellipse cx="60" cy="60" rx="25" ry="60" fill="none" stroke="#000" stroke-width="7"/>
+      </g>
+    </mask>
+  </defs>
+  <circle class="disc" cx="60" cy="60" r="58" mask="url(#m)"/>
+  <g clip-path="url(#c)"><rect x="-10" y="55" width="140" height="10" fill="#c9981f" transform="rotate(-14 60 60)"/></g>
+</svg>

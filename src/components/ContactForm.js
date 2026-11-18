@@ -2,19 +2,29 @@
 'use client'
 
 import {
-  Container,
   Box,
-  Stack,
-  Heading,
-  Text,
-  Input,
-  Textarea,
   Button,
+  FormControl,
+  FormLabel,
+  Input,
+  SimpleGrid,
+  Stack,
+  Text,
+  Textarea,
   useToast,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { Arrow, Band, SectionHeader } from './ui'
 
-export default function ContactForm(props) {
+const fieldStyles = {
+  bg: 'paper',
+  borderColor: 'lineStrong',
+  borderRadius: '4px',
+  _hover: { borderColor: 'ink' },
+  _focusVisible: { borderColor: 'ink', boxShadow: '0 0 0 1px var(--chakra-colors-ink)' },
+}
+
+export default function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -39,8 +49,8 @@ export default function ContactForm(props) {
       }
 
       toast({
-        title: 'Message sent!',
-        description: 'We have received your message and will get back to you soon.',
+        title: 'Message sent',
+        description: 'We have your message and will reply soon.',
         status: 'success',
         duration: 5000,
         isClosable: true,
@@ -50,8 +60,8 @@ export default function ContactForm(props) {
       setMessage('')
     } catch (error) {
       toast({
-        title: 'Error sending message.',
-        description: 'There was an error sending your message. Please try again later.',
+        title: 'Your message was not sent',
+        description: 'Something went wrong on our side. Please try again in a few minutes.',
         status: 'error',
         duration: 5000,
         isClosable: true,
@@ -61,78 +71,37 @@ export default function ContactForm(props) {
   }
 
   return (
-    <Container id='contact-form' maxW={'5xl'} py={12} {...props}>
-      <Heading color={'var(--main-color)'} mb={6} textAlign={'center'}>
-        Contact Us
-      </Heading>
-      <Box
-        as="form"
-        bg={'var(--background-color)'}
-        p={6}
-        rounded={'md'}
-        shadow={'lg'}
-        border={`1px solid var(--main-color-dark)`}
-        onSubmit={handleSubmit}
-      >
-        <Stack spacing={6} textAlign={'center'}>
-          <Stack spacing={4}>
-            <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-              We&apos;d love to hear from you! Based in Cape Town, we work with clients locally and globally.<br /> Please fill out the form below, and we&apos;ll get back to you as soon as possible.
-            </Text>
-            <Stack spacing={4}>
-              <Input
-                placeholder="Your Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                isRequired
-                variant="outline"
-                borderColor={'var(--main-color-dark)'}
-                _focus={{ borderColor: 'var(--main-color)' }}
-              />
-              <Input
-                placeholder="Your Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                isRequired
-                variant="outline"
-                borderColor={'var(--main-color-dark)'}
-                _focus={{ borderColor: 'var(--main-color)' }}
-              />
-              <Textarea
-                placeholder="Your Message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                isRequired
-                rows={6}
-                variant="outline"
-                borderColor={'var(--main-color-dark)'}
-                _focus={{ borderColor: 'var(--main-color)' }}
-              />
-            </Stack>
+    <Band id="contact-form">
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 8, md: 12 }}>
+        <SectionHeader label="Start a project" title="Tell us what you need built.">
+          <Text color="steel" maxW="44ch">
+            A few lines is enough. We are based in Cape Town and work with clients anywhere.
+          </Text>
+        </SectionHeader>
+
+        <Box as="form" onSubmit={handleSubmit}>
+          <Stack spacing={5}>
+            <FormControl isRequired>
+              <FormLabel htmlFor="contact-name" fontWeight={600} fontSize="sm">Your name</FormLabel>
+              <Input id="contact-name" value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" {...fieldStyles} />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel htmlFor="contact-email" fontWeight={600} fontSize="sm">Your email</FormLabel>
+              <Input id="contact-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" {...fieldStyles} />
+            </FormControl>
+            <FormControl isRequired>
+              <FormLabel htmlFor="contact-message" fontWeight={600} fontSize="sm">What do you need?</FormLabel>
+              <Textarea id="contact-message" value={message} onChange={(e) => setMessage(e.target.value)} rows={6} {...fieldStyles} />
+            </FormControl>
+            <Box>
+              <Button type="submit" size="lg" isLoading={isSubmitting} loadingText="Sending">
+                Send message
+                <Arrow />
+              </Button>
+            </Box>
           </Stack>
-          <Stack spacing={4} align={'center'}>
-            <Button
-              type="submit"
-              colorScheme={'accent-color'}
-              bg={'var(--accent-color)'}
-              rounded={'full'}
-              px={6}
-              isLoading={isSubmitting}
-              _hover={{
-                bg: 'var(--button-hover-color)',
-              }}
-              w="full"
-              maxW="200px"
-            >
-              Send Message
-            </Button>
-            <Text color={'var(--text-light-color)'} fontSize={'sm'} mt={4}>
-              Web Artisan Studios (PTY) LTD | Registration No: 2025/012325/07
-            </Text>
-          </Stack>
-        </Stack>
-      </Box>
-    </Container>
+        </Box>
+      </SimpleGrid>
+    </Band>
   )
 }

@@ -1,77 +1,51 @@
 // src/components/Hero.js
 'use client'
 
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-} from '@chakra-ui/react'
-import GradientBanner from './GradientBanner';
-import ScrollToButton from './ScrollToButton';
+import { Box, Button, Container, Flex, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import { Arrow, Label, Underline } from './ui';
+import { Stamp } from './Logo';
 
-export default function CallToActionWithAnnotation() {
+export default function Hero() {
   return (
-    <GradientBanner>
-      <Stack
-        as={Box}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 24, md: 40 }}
-        textAlign="center"
-      >
-        <Heading
-          fontWeight={700}
-          fontSize={{ base: '4xl', sm: '5xl', md: '6xl' }}
-          lineHeight={'110%'}
-          color={'white'}
-        >
-          Digital Craftsmanship
-        </Heading>
-        <Text
-          color={'whiteAlpha.800'}
-          fontSize={{ base: 'md', md: 'xl' }}
-          maxW={'3xl'}
-          mx={'auto'}
-        >
-          We engineer bespoke digital platforms for specialized industries and ambitious ventures. From fintech to adventure sports, our Cape Town studio builds for speed, scale, and impact.
-        </Text>
-        <Stack
-          direction={{ base: 'column', sm: 'row' }}
-          spacing={6}
-          align={'center'}
-          justify={'center'}
-          position={'relative'}
-        >
-          <ScrollToButton
-            targetId={'contact-form'}
-            bg={'var(--accent-color)'}
-            color={'white'}
-            rounded={'full'}
-            size={'lg'}
-            px={8}
-            _hover={{
-              bg: 'var(--button-hover-color)',
-              color: 'white',
-            }}
-          >
-            Get Started
-          </ScrollToButton>
-          <ScrollToButton
-            targetId={'about'}
-            variant={'outline'}
-            color={'white'}
-            borderColor={'whiteAlpha.800'}
-            rounded={'full'}
-            size={'lg'}
-            px={8}
-            _hover={{
-              bg: 'whiteAlpha.200',
-            }}
-          >
-            Learn More
-          </ScrollToButton>
+    <Box as="section">
+      <Container maxW="6xl" pt={{ base: 14, md: 24 }} pb={{ base: 14, md: 20 }}>
+        <Stack spacing={{ base: 10, md: 16 }}>
+          <Flex align="center" justify="space-between" gap={10}>
+            <Heading
+              as="h1"
+              fontSize={{ base: '2.9rem', sm: '4rem', md: '5.4rem', lg: '6.4rem' }}
+              lineHeight={0.98}
+              letterSpacing="-0.035em"
+              maxW="12ch"
+            >
+              Built to go the <Underline>distance.</Underline>
+            </Heading>
+            <Box display={{ base: 'none', lg: 'block' }} flex="none" mr={4}>
+              <Stamp size={250} spin />
+            </Box>
+          </Flex>
+
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} alignItems="end">
+            <Stack spacing={4}>
+              <Label>Cape Town · 34°S 18°E</Label>
+              <Text fontSize={{ base: 'lg', md: 'xl' }} maxW="50ch">
+                We build websites, online shops and apps.
+                <br />
+                Then we stay and look after them.
+              </Text>
+            </Stack>
+            <Flex gap={3} wrap="wrap" justify={{ base: 'flex-start', md: 'flex-end' }}>
+              <Button as="a" href="#work" size="lg">
+                See the work
+                <Arrow />
+              </Button>
+              <Button as="a" href="#contact-form" size="lg" variant="line">
+                Start a project
+              </Button>
+            </Flex>
+          </SimpleGrid>
         </Stack>
-      </Stack>
-    </GradientBanner>
-  )
+      </Container>
+    </Box>
+  );
 }

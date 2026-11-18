@@ -1,290 +1,106 @@
 "use client";
 
-import { Container, Heading, Text, Stack, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
+import { Box, Container, Heading, SimpleGrid, Stack, Text, Link as ChakraLink } from '@chakra-ui/react';
 import ContactForm from '../../components/ContactForm';
-import GradientBanner from '../../components/GradientBanner';
+import { FounderSection } from '../../components/Services';
+import { Arrow, Band, Label, SectionHeader } from '../../components/ui';
+import { Mark } from '../../components/Logo';
+import { studio } from '../../data/work';
 
-const calculateYears = () => {
-    const startDate = new Date('2015-03-01');
-    const today = new Date();
-    let years = today.getFullYear() - startDate.getFullYear();
-    const m = today.getMonth() - startDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < startDate.getDate())) {
-        years--;
-    }
-    return years;
-};
+const principles = [
+  { title: 'One person, start to finish', text: 'No account managers and no hand-offs. The person who quotes the work is the person who builds it.' },
+  { title: 'Plain about cost', text: 'Quotes are estimates in hours. We bill for the hours actually worked, and you see them every month.' },
+  { title: 'No finish line', text: 'Launch is the start. We keep hosting, changing and supporting what we build for as long as you need it.' },
+];
+
+const before = ['Distell', 'BAT', 'Capitec', 'Nedbank', 'Laughing Cow'];
+
+const alsoWith = [
+  {
+    name: 'Sport Helicopters',
+    kind: 'Helicopter flights',
+    url: 'https://sporthelicopterscapetown.co.za/',
+    text: 'An internal booking platform for their flight logistics. We maintain the system that schedules their active fleet.',
+  },
+  {
+    name: 'Maverick Labs',
+    kind: 'Product lab',
+    url: 'https://mavericklabs.io/',
+    text: 'A product lab we work alongside on large mobile and web projects.',
+  },
+];
 
 export default function About() {
-  const yearsExperience = calculateYears();
-
   return (
-    <>
-    <GradientBanner>
-        <Stack
-            spacing={6}
-            py={{ base: 20, md: 28 }}
-            textAlign="center"
-        >
-            <Heading
-                color={'white'}
-                as="h1"
-                fontSize={{ base: '3xl', md: '5xl' }}
-            >
-                About Web Artisan Studios
+    <main>
+      <Box as="section" position="relative" overflow="hidden" sx={{ isolation: 'isolate' }}>
+        {/* Oversized globe mark, cropped by the edge of the section */}
+        <Box position="absolute" zIndex={-1} top="-90px" right="-150px" color="panel" pointerEvents="none" display={{ base: 'none', md: 'block' }}>
+          <Mark size={560} />
+        </Box>
+        <Container maxW="6xl" pt={{ base: 14, md: 24 }} pb={{ base: 12, md: 20 }}>
+          <Stack spacing={6}>
+            <Label>About · Cape Town · Since {studio.since}</Label>
+            <Heading as="h1" fontSize={{ base: '2.6rem', md: '4.4rem' }} letterSpacing="-0.03em" lineHeight={1} maxW={{ md: '75%' }} sx={{ textWrap: 'balance' }}>
+              A small studio that builds things properly.
             </Heading>
-            <Text
-                color={'whiteAlpha.800'}
-                fontSize={'xl'}
-                maxW="3xl"
-                mx="auto"
-            >
-                We are a digital product agency based in Cape Town, built on the belief that great code and great design must work in harmony.
+            <Text fontSize={{ base: 'lg', md: 'xl' }} maxW="56ch">
+              Web Artisan Studios builds websites, online shops and apps from Cape Town. Many of our clients work in motorcycling, touring and the outdoors. All of them wanted something built with care and looked after once it was live.
             </Text>
-        </Stack>
-    </GradientBanner>
+          </Stack>
+        </Container>
+      </Box>
 
-    <Container maxW={'6xl'} py={12}>
-        <Stack spacing={12}>
-            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} alignItems="center">
-                <Box textAlign={{ base: 'left', md: 'center' }}>
-                    <Heading size="lg" mb={4} color={'var(--main-color)'}>Our Mission</Heading>
-                    <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={4}>
-                        To empower businesses with digital tools that are not just functional, but exceptional. We bridge the gap between complex technical requirements and intuitive user experiences.
-                    </Text>
-                    <Text color={'var(--text-light-color)'} fontSize={'lg'}>
-                        Whether partnering with startups or established enterprises, we bring a level of craftsmanship to software development that ensures scalability, performance, and longevity.
-                    </Text>
-                </Box>
-                <Box bg={useColorModeValue('gray.50', 'gray.700')} p={8} rounded={'lg'} shadow={'lg'} textAlign={{ base: 'left', md: 'center' }}>
-                    <Heading size="md" mb={4} color={'var(--accent-color)'}>What Sets Us Apart</Heading>
-                    <Stack spacing={3}>
-                        <Text><strong>Technical Excellence:</strong> We prioritize clean, maintainable code and robust architecture.</Text>
-                        <Text><strong>Design-Driven:</strong> User experience is at the core of everything we build.</Text>
-                        <Text><strong>Partnership Focus:</strong> We build long-term relationships with our clients.</Text>
-                    </Stack>
-                </Box>
-            </SimpleGrid>
+      <FounderSection showAboutLink={false} />
 
-            {/* Leadership Section */}
-            <Stack spacing={6} textAlign={{ base: 'left', md: 'center' }}>
-                 <Heading size="xl" color={'var(--main-color)'}>Leadership & Experience</Heading>
+      <Band dark position="relative" overflow="hidden" sx={{ isolation: 'isolate' }}>
+        <Box position="absolute" zIndex={-1} bottom="-190px" right="-110px" opacity={0.08} pointerEvents="none">
+          <Mark size={520} accent="currentColor" />
+        </Box>
+        <SectionHeader label="How we work" title="Three things you can count on." mb={10} dark />
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 6, md: 8 }}>
+          {principles.map((item) => (
+            <Stack key={item.title} spacing={2} pt={5} borderTop="2px solid" borderColor="brass">
+              <Heading as="h3" fontSize="1.25rem" fontWeight={600}>
+                {item.title}
+              </Heading>
+              <Text color="mist">{item.text}</Text>
             </Stack>
+          ))}
+        </SimpleGrid>
+      </Band>
 
-            <Box bg={useColorModeValue('white', 'gray.800')} p={8} rounded={'xl'} shadow={'xl'} border="1px" borderColor="gray.100">
-                <Box textAlign={{ base: 'left', md: 'center' }} mb={12}>
-                        <Heading size="lg" mb={2}>Werner Brynard</Heading>
-                        <Text color={'var(--accent-color)'} fontWeight="bold" mb={4}>Founder & Technical Lead</Text>
-                        <Text color={'var(--text-light-color)'} fontSize={'lg'} mb={4}>
-                            With over {yearsExperience} years of industry experience, Werner leads Web Artisan Studios with a focus on high-quality engineering standards. His background spans fintech, mobile development, and enterprise web solutions.
-                        </Text>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                            He has architected and delivered critical software solutions for industry leaders including Distell, BAT, and Capitec. Today, he brings that same enterprise-grade discipline and technical rigor to every client partnership at Web Artisan Studios.
-                        </Text>
-                </Box>
-                
-                <Box textAlign="center" pt={10} borderTop="1px" borderColor="gray.100">
-                    <Heading size="md" mb={6} color={'var(--text-light-color)'} fontWeight="normal" letterSpacing="wide" textTransform="uppercase" fontSize="sm">
-                        Enterprise Engineering Heritage
-                    </Heading>
-                    <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} spacing={8} alignItems="center" opacity={0.6}>
-                        <Text fontWeight="bold" fontSize="lg" color="gray.500">DISTELL</Text>
-                        <Text fontWeight="bold" fontSize="lg" color="gray.500">BAT</Text>
-                        <Text fontWeight="bold" fontSize="lg" color="gray.500">CAPITEC</Text>
-                        <Text fontWeight="bold" fontSize="lg" color="gray.500">NEDBANK</Text>
-                        <Text fontWeight="bold" fontSize="lg" color="gray.500">LAUGHING COW</Text>
-                    </SimpleGrid>
-                </Box>
-            </Box>
+      <Band>
+        <SectionHeader label="More of the work" title="Not everything we build has a public page." mb={10} />
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 6, md: 8 }}>
+          {alsoWith.map((item) => (
+            <Stack key={item.name} spacing={2} pt={5} borderTop="1px solid" borderColor="lineStrong">
+              <Label>{item.kind}</Label>
+              <Heading as="h3" fontSize="1.45rem">
+                {item.name}
+              </Heading>
+              <Text color="steel" maxW="48ch">{item.text}</Text>
+              <ChakraLink href={item.url} isExternal color="ink" fontWeight={600} fontSize="sm" pt={2} _hover={{ textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                Visit site
+                <Arrow />
+              </ChakraLink>
+            </Stack>
+          ))}
+        </SimpleGrid>
+      </Band>
 
-            {/* Selected Client Work */}
-            <Box>
-                <Stack spacing={2} textAlign={{ base: 'left', md: 'center' }} mb={10}>
-                    <Heading size="lg" color={'var(--main-color)'}>Featured Partnerships</Heading>
-                    <Text color={'var(--text-light-color)'} fontSize={'lg'} maxW="4xl" mx={{ base: 0, md: 'auto' }}>
-                        We partner with ambitious specialized brands to build digital excellence.
-                    </Text>
-                </Stack>
-                
-                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} alignItems="stretch">
-                    <Box 
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://sporthelicopterscapetown.co.za/" target="_blank" rel="noopener noreferrer">SPORT HELICOPTERS</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Developed a specialized internal booking platform to streamline their flight logistics. We maintain the infrastructure that manages their active fleet scheduling and operations.
-                        </Text>
-                    </Box>
-                    
-                    <Box 
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://xplrsouthafrica.co.za/" target="_blank" rel="noopener noreferrer">XPLR SOUTH AFRICA</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Architected a content-first platform for a travel documentary series. Optimized for video delivery and user retention, serving as the central hub for a growing community of adventure riders.
-                        </Text>
-                    </Box>
+      <Band>
+        <SectionHeader label="Before the studio" title="Larger companies Werner has built software for." mb={8} />
+        <SimpleGrid columns={{ base: 2, md: 5 }} borderTop="1px solid" borderColor="lineStrong">
+          {before.map((name) => (
+            <Text key={name} py={5} fontFamily="heading" fontStretch="114%" fontWeight={600} fontSize="lg" color="steel" borderBottom="1px solid" borderColor="line">
+              {name}
+            </Text>
+          ))}
+        </SimpleGrid>
+      </Band>
 
-                    <Box 
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://miragearco.com/" target="_blank" rel="noopener noreferrer">MIRA GEAR</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Developed a brand-centric e-commerce showcase for technical riding gear. The site emphasizes product quality through high-fidelity imagery and a custom sizing guide.
-                        </Text>
-                    </Box>
-
-                    <Box 
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://mavericklabs.io/" target="_blank" rel="noopener noreferrer">MAVERICK LABS</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                            A strategic partner and product lab. We work alongside their team to deliver technical excellence for large-scale mobile and web initiatives.
-                        </Text>
-                    </Box>
-                    
-                    <Box 
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://sarahkashyap.com/" target="_blank" rel="noopener noreferrer">SARAH KASHYAP</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Built a high-impact personal brand website for India&apos;s leading female rally racer. The site serves as a professional portfolio for sponsorship acquisition and media relations.
-                        </Text>
-                    </Box>
-
-                    <Box
-                        bg={useColorModeValue('gray.50', 'gray.700')}
-                        p={8}
-                        rounded={'xl'}
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://www.lawnandladder.co.za/" target="_blank" rel="noopener noreferrer">LAWN &amp; LADDER</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Designed and built a lead-focused website for a Pretoria property maintenance service. The site showcases their range of one-off services and converts visitors through a streamlined quote request flow.
-                        </Text>
-                    </Box>
-
-                    <Box
-                        bg={useColorModeValue('gray.50', 'gray.700')} 
-                        p={8} 
-                        rounded={'xl'} 
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://rideout.co.za/" target="_blank" rel="noopener noreferrer">RIDEOUT</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Our own app for adventure motorcyclists, on iOS, Android and the web. It records the whole ride and tells you what it actually was, with a web route builder that colours the map by surface and plans group rides around it.
-                        </Text>
-                    </Box>
-
-                    <Box
-                        bg={useColorModeValue('gray.50', 'gray.700')}
-                        p={8}
-                        rounded={'xl'}
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://www.mynhardt.co.za/" target="_blank" rel="noopener noreferrer">MYNHARDT</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Crafted an elegant brand experience for chef Mynhardt Joubert&apos;s events venue at the historic KWV Cathedral Cellar. The site captures his culinary heritage and guides guests from weddings to corporate functions.
-                        </Text>
-                    </Box>
-
-                    <Box
-                        bg={useColorModeValue('gray.50', 'gray.700')}
-                        p={8}
-                        rounded={'xl'}
-                        shadow={'md'}
-                        border="1px"
-                        borderColor="transparent"
-                        transition="all 0.2s"
-                        _hover={{ shadow: 'lg', borderColor: 'var(--accent-color)', transform: 'translateY(-4px)' }}
-                        textAlign={{ base: 'left', md: 'center' }}
-                    >
-                        <Heading size="md" color={'var(--accent-color)'} mb={3}>
-                            <a href="https://onelifetours.co.za/" target="_blank" rel="noopener noreferrer">ONE LIFE TOURS</a>
-                        </Heading>
-                        <Text color={'var(--text-light-color)'} fontSize={'md'}>
-                        Designed and built the website for a luxury 15-day guided motorcycle tour through the Western Cape. The site takes international riders through the route day by day, from pricing and the crew to an enquiry form that goes straight to the team.
-                        </Text>
-                    </Box>
-                </SimpleGrid>
-            </Box>
-            
-            <Box mt={10}>
-                <ContactForm maxW={'full'} px={0} />
-            </Box>
-        </Stack>
-    </Container>
-    </>
+      <ContactForm />
+    </main>
   );
 }

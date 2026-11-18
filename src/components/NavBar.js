@@ -1,224 +1,138 @@
 // src/components/NavBar.js
 'use client'
 
-import React from 'react';
+import { useEffect, useState } from 'react';
 import {
   Box,
+  Button,
+  Container,
   Flex,
-  Image,
-  useColorMode,
-  useTheme,
-  Heading,
   IconButton,
   Stack,
   Link as ChakraLink,
-  useDisclosure,
-  Text,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Lockup } from './Logo';
+import { Arrow } from './ui';
+import { navLinks as links, contactHref } from '@/data/nav';
 
 const MotionBox = motion(Box);
-const MotionLink = motion(ChakraLink);
 
 export default function NavBar() {
-  const { colorMode } = useColorMode();
-  const theme = useTheme();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const contact = contactHref(pathname);
+  const close = () => setIsOpen(false);
 
-  const handleNavClick = (e, path) => {
-    const normalize = (p) => (p || '').replace(/\/$/, '') || '/';
-    if (normalize(pathname) === normalize(path)) {
-      e.preventDefault();
-      // Delay scrolling slightly to handle mobile drawer closing (unlocking body scroll)
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
+  // Lock page scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Close the menu if the window grows to desktop width (for example on rotation),
+  // where the menu and its button are hidden and the page would stay locked.
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 48em)');
+    const onChange = (event) => {
+      if (event.matches) setIsOpen(false);
+    };
+    desktop.addEventListener('change', onChange);
+    return () => desktop.removeEventListener('change', onChange);
+  }, []);
+
+  // A link to the page you are already on scrolls back to the top.
+  const handleNavClick = (event, href) => {
+    const normalise = (p) => (p || '').replace(/\/$/, '') || '/';
+    if (normalise(pathname) === normalise(href)) {
+      event.preventDefault();
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), isOpen ? 100 : 0);
     }
-    onClose();
+    close();
   };
 
-  const handleScrollToContact = (e) => {
-    e.preventDefault();
-    const contactElement = document.getElementById('contact-form');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
-    onClose(); // Close the drawer after navigating
-  };
-
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      clipPath: "circle(0% at calc(100% - 40px) 40px)",
-      transition: {
-        delay: 0.1,
-        type: "spring",
-        stiffness: 400,
-        damping: 40
-      }
-    },
-    open: {
-      opacity: 1,
-      clipPath: "circle(150% at calc(100% - 40px) 40px)",
-      transition: {
-        type: "spring",
-        stiffness: 20,
-        restDelta: 2
-      }
-    }
-  };
-
-  const listVariants = {
-    closed: {
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1
-      }
-    },
-    open: {
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    closed: {
-      y: 50,
-      opacity: 0,
-      transition: {
-        y: { stiffness: 1000 }
-      }
-    },
-    open: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        y: { stiffness: 1000, velocity: -100 }
-      }
+  // From the mobile menu, wait for the scroll lock to lift before scrolling to the form.
+  const handleMobileContact = (event) => {
+    const form = document.getElementById('contact-form');
+    close();
+    if (form) {
+      event.preventDefault();
+      setTimeout(() => form.scrollIntoView({ behavior: 'smooth' }), 100);
     }
   };
 
   return (
-    <Box
-      bg={colorMode === 'light' ? 'var(--background-color)' : 'gray.800'}
-      px={4}
-      borderBottom={`1px solid ${theme.colors.mainColorDark || 'var(--main-color-dark)'}`}
-      position="sticky"
-      top={0}
-      zIndex={1000}
-    >
-      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <ChakraLink as={NextLink} href="/" _hover={{ textDecoration: 'none' }} onClick={(e) => handleNavClick(e, '/')}>
-          <Flex alignItems={'center'}>
-            <Image
-              src="/images/logo.jpeg"
-              alt="Logo"
-              boxSize="50px"
-              style={{ borderRadius: '4px' }}
-            />
-            <Heading as="span" ml={4} fontSize="lg" color="var(--main-color)">
-              Web Artisan Studios
-            </Heading>
-          </Flex>
-        </ChakraLink>
-        <Flex alignItems={'center'} display={{ base: 'none', md: 'flex' }} ml="auto">
-          <ChakraLink as={NextLink} href="/about" ml={4} color="var(--main-color)" onClick={(e) => handleNavClick(e, '/about')} _hover={{ color: 'var(--accent-color)' }}>
-            About
+    <Box as="header" bg="stone" borderBottom="1px solid" borderColor="line" position="sticky" top={0} zIndex={1000}>
+      <Container maxW="6xl">
+        <Flex h="72px" align="center" justify="space-between">
+          <ChakraLink as={NextLink} href="/" onClick={(e) => handleNavClick(e, '/')} color="ink" _hover={{ textDecoration: 'none' }} aria-label="Web Artisan Studios, home">
+            <Lockup />
           </ChakraLink>
-          <ChakraLink href="#contact-form" onClick={handleScrollToContact} ml={4} color="var(--main-color)" _hover={{ color: 'var(--accent-color)' }}>
-            Contact
-          </ChakraLink>
-        </Flex>
-        
-        {/* Mobile Hamburger Menu Button */}
-        <IconButton
-          ref={btnRef}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          aria-label="Open Menu"
-          variant="ghost"
-          onClick={isOpen ? onClose : onOpen}
-          display={{ base: 'flex', md: 'none' }}
-          color="var(--main-color)"
-          _hover={{ bg: 'transparent', color: 'var(--accent-color)' }}
-          zIndex={2001} // Ensure button is above the overlay
-        />
 
-        {/* Full Screen Mobile Menu Overlay */}
-        <AnimatePresence>
-          {isOpen && (
-            <MotionBox
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              position="fixed"
-              top={0}
-              left={0}
-              width="100vw"
-              height="100vh"
-              bg="var(--background-color)"
-              zIndex={2000}
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Stack 
-                as={motion.div} 
-                variants={listVariants} 
-                spacing={8} 
-                textAlign="center"
-              >
-                <MotionBox variants={itemVariants}>
-                  <ChakraLink 
-                    as={NextLink} 
-                    href="/" 
-                    onClick={(e) => handleNavClick(e, '/')} 
-                    fontSize="4xl" 
-                    fontWeight="bold"
-                    color="var(--main-color)" 
-                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
-                  >
-                    Home
-                  </ChakraLink>
-                </MotionBox>
-                <MotionBox variants={itemVariants}>
-                  <ChakraLink 
-                    as={NextLink} 
-                    href="/about" 
-                    onClick={(e) => handleNavClick(e, '/about')} 
-                    fontSize="4xl" 
-                    fontWeight="bold"
-                    color="var(--main-color)" 
-                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
-                  >
-                    About
-                  </ChakraLink>
-                </MotionBox>
-                <MotionBox variants={itemVariants}>
-                  <ChakraLink 
-                    href="#contact-form" 
-                    onClick={handleScrollToContact} 
-                    fontSize="4xl" 
-                    fontWeight="bold"
-                    color="var(--main-color)" 
-                    _hover={{ color: 'var(--accent-color)', textDecoration: 'none' }}
-                  >
-                    Contact
-                  </ChakraLink>
-                </MotionBox>
-              </Stack>
-            </MotionBox>
-          )}
-        </AnimatePresence>
-      </Flex>
+          <Flex as="nav" align="center" gap={7} display={{ base: 'none', md: 'flex' }}>
+            {links.map((link) => (
+              <ChakraLink key={link.href} as={NextLink} href={link.href} onClick={(e) => handleNavClick(e, link.href)} color="ink" fontWeight={500} fontSize="15px" _hover={{ textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+                {link.label}
+              </ChakraLink>
+            ))}
+            <Button as="a" href={contact} size="sm" px={4} h="38px">
+              Start a project
+              <Arrow />
+            </Button>
+          </Flex>
+
+          <IconButton
+            icon={isOpen ? <CloseIcon boxSize={3} /> : <HamburgerIcon boxSize={5} />}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+            variant="line"
+            onClick={() => setIsOpen((open) => !open)}
+            display={{ base: 'flex', md: 'none' }}
+            zIndex={2001}
+          />
+        </Flex>
+      </Container>
+
+      <AnimatePresence>
+        {isOpen && (
+          <MotionBox
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.16, ease: 'easeOut' }}
+            position="fixed"
+            top="73px"
+            left={0}
+            right={0}
+            bottom={0}
+            bg="ink"
+            color="stone"
+            zIndex={2000}
+            display={{ base: 'block', md: 'none' }}
+            px={6}
+            py={10}
+          >
+            <Stack as="nav" spacing={6}>
+              {links.map((link) => (
+                <ChakraLink key={link.href} as={NextLink} href={link.href} onClick={(e) => handleNavClick(e, link.href)} fontFamily="heading" fontStretch="114%" fontWeight={700} fontSize="4xl" letterSpacing="-0.02em" color="stone" _hover={{ textDecoration: 'none', color: 'brass' }}>
+                  {link.label}
+                </ChakraLink>
+              ))}
+              <Box pt={4}>
+                <Button as="a" href={contact} onClick={handleMobileContact} variant="stone" size="lg">
+                  Start a project
+                  <Arrow />
+                </Button>
+              </Box>
+            </Stack>
+          </MotionBox>
+        )}
+      </AnimatePresence>
     </Box>
   );
 }

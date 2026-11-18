@@ -1,20 +1,6 @@
-'use client';
-
-import { motion } from 'framer-motion';
-
+// Page transition: a short, firm rise. No bounce.
+// Done in CSS (see .page-enter in globals.scss) so the page is never left
+// invisible while waiting for JavaScript.
 export default function Template({ children }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 400, 
-        damping: 25,
-        mass: 0.5
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="page-enter">{children}</div>;
 }
